@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Donaciones UABC</string>
+    <string name="mamalon"> \tEl programa ayuda a los estudiantes\n\t\tmediante un apoyo por parte de \npersonas solidarias para el mejoramiento   de su rendimiento academico, a traves   de donaciones de materiales que ellos necesitan a lo largo del cursamiento de\n\t\t\t\t\t\t su carrera.</string>
+    <string name="mamalon2"> \tEl programa ayuda a los estudiantes\n\t\t\tmediante un apoyo por parte de \npersonas solidarias para el mejoramiento\n  \tde su rendimiento academico, a traves   \n\tde donaciones de materiales que ellos necesitan a lo largo del cursamiento de\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t su carrera.</string>
+    <string name="title_activity_donador">DonadorActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

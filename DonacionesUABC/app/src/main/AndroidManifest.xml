@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AcercadeActivity" />
+        <activity android:name=".RolActivity" />
+        <activity android:name=".RegistroExternoActivity" />
+        <activity
+            android:name=".DonadorActivity"
+            android:label="@string/title_activity_donador"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

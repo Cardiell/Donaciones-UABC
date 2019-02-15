@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFF"
-    tools:context=".LoginActivity">
+    tools:context=".RolActivity">
 
 
     <ImageView
@@ -99,112 +99,57 @@
 
 
 
-        <ImageView
-            android:id="@+id/fondoInferior"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="34.5dp"
-            android:src="@drawable/header"/>
-
     <ImageView
-        android:id="@+id/iconEmail"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginLeft="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="180dp"
-        app:srcCompat="@drawable/iconemail" />
-
-    <ImageView
-        android:id="@+id/iconPass"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginLeft="20dp"
+        android:id="@+id/fondoInferior"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="189dp"
-        app:srcCompat="@drawable/iconpass" />
+        android:layout_width="match_parent"
+        android:layout_height="34.5dp"
+        android:src="@drawable/header"/>
 
-    <EditText
-        android:id="@+id/txtUser"
-        android:layout_width="150dp"
-        android:layout_height="31dp"
-        android:layout_alignTop="@+id/iconEmail"
-        android:layout_marginLeft="55dp"
-        android:background="#d8d8d8"
-        android:ems="10"
-        android:hint="Usuario"
-        android:inputType="textEmailAddress"
-        android:textColor="#000000"
-        android:textStyle="normal" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/txtUser"
-        android:text="\@uabc.edu.mx"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_marginLeft="210dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        />
+    <ImageButton
+        android:id="@+id/btndonador"
+        android:layout_width="260dp"
+        android:layout_height="89dp"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-28dp"
+        android:background="@drawable/image_border"
+        android:onClick="onClickDonador"
+        android:src="@drawable/donador" />
 
-    <EditText
-        android:id="@+id/txtPass"
-        android:layout_width="190dp"
-        android:layout_height="31dp"
-        android:layout_alignTop="@+id/iconPass"
-        android:layout_marginLeft="55dp"
-        android:background="#d8d8d8"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textColor="#000000"
-        android:textStyle="normal" />
-
-    <Button
-        android:id="@+id/btnAcceder"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_below="@+id/iconPass"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="-175dp"
-        android:background="@drawable/borde_redondo"
-        android:textColor="#FFFFFF"
-        android:onClick="onClickAcceder"
-        android:text="Acceder" />
+    <ImageButton
+        android:id="@+id/btnReceptor"
+        android:layout_width="258dp"
+        android:layout_height="95dp"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-156dp"
+        android:background="@drawable/image_border"
+        android:onClick="onClickReceptor"
+        android:src="@drawable/receptor" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="71dp"
-        android:layout_marginLeft="67dp"
-        android:textColor="#1077b7"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:onClick="onClickRegistrar"
-        android:text="Registrarse" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="49dp"
+        android:text="Receptor"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_marginLeft="171dp"
-        android:textColor="#1077b7"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:text="Acerca de"
-        android:onClick="onClickAcercaDe"/>
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="13dp"
-        android:layout_height="19dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="155dp"
-        android:layout_marginBottom="71dp"
-        app:srcCompat="@drawable/linea" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="183dp"
+        android:text="Donador"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

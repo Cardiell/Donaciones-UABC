@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFF"
+    tools:context=".RegistroExternoActivity">
+
+
+    <ImageView
+        android:id="@+id/fondoNegro"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/footerbg" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="93dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="237dp"
+        app:srcCompat="@drawable/mizquierda" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="93dp"
+        android:layout_height="115dp"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="237dp"
+        app:srcCompat="@drawable/merecha" />
+
+    <ImageView
+        android:id="@+id/fondoVerde"
+        android:layout_width="wrap_content"
+        android:layout_height="122dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/verdechido" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/nameSchool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fondoNegro"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="9dp"
+        android:text="Universidad Autonoma de Baja California"
+        android:textColor="#FFFF"
+        android:textSize="10sp" />
+
+
+
+    <ImageView
+        android:id="@+id/fondoNaranja"
+        android:layout_width="180dp"
+        android:layout_height="65dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/lineanaranja" />
+
+    <TextView
+        android:id="@+id/namePrograma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fondoNaranja"
+        android:paddingTop="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="122dp"
+        android:layout_marginLeft="122dp"
+        android:text="Donaciones UABC"
+        android:textColor="#FFFF"
+        android:textSize="10sp" />
+
+
+
+
+    <ImageView
+        android:id="@+id/fondoInferior"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="34.5dp"
+        android:src="@drawable/header"/>
+
+    <ScrollView
+        android:layout_width="273dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:scrollbarStyle="insideOverlay">
+
+        <LinearLayout
+            android:layout_width="273dp"
+            android:layout_height="250dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Correo"
+                android:textColor="#b71241" />
+
+            <EditText
+                android:id="@+id/txtCorreo"
+                android:layout_width="272dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#b71241"
+                android:ems="10"
+                android:hint="Correo"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Apellidos"
+                android:textColor="#b71241" />
+
+            <EditText
+                android:id="@+id/txtNombre"
+                android:layout_width="272dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#b71241"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tel (Cel)"
+                android:textColor="#b71241" />
+
+            <EditText
+                android:id="@+id/txtTelefono"
+                android:layout_width="272dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#b71241"
+                android:ems="10"
+                android:hint="tel (cel)"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre(s)"
+                android:textColor="#b71241" />
+
+            <EditText
+                android:id="@+id/txtApellido"
+                android:layout_width="272dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#b71241"
+                android:ems="10"
+                android:hint="Paterno Materno"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+            <Button
+                android:id="@+id/btnAcceder"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:background="@drawable/borde_redondo"
+                android:textColor="#FFFFFF"
+                android:onClick="onClickAceptar"
+                android:text="Aceptar" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

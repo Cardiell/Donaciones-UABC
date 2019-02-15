@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFF"
-    tools:context=".LoginActivity">
+    tools:context=".AcercadeActivity">
 
 
     <ImageView
@@ -99,112 +99,54 @@
 
 
 
-        <ImageView
-            android:id="@+id/fondoInferior"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="34.5dp"
-            android:src="@drawable/header"/>
-
     <ImageView
-        android:id="@+id/iconEmail"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginLeft="20dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="180dp"
-        app:srcCompat="@drawable/iconemail" />
-
-    <ImageView
-        android:id="@+id/iconPass"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginLeft="20dp"
+        android:id="@+id/fondoInferior"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="189dp"
-        app:srcCompat="@drawable/iconpass" />
+        android:layout_width="match_parent"
+        android:layout_height="34.5dp"
+        android:src="@drawable/header"/>
 
-    <EditText
-        android:id="@+id/txtUser"
-        android:layout_width="150dp"
-        android:layout_height="31dp"
-        android:layout_alignTop="@+id/iconEmail"
-        android:layout_marginLeft="55dp"
-        android:background="#d8d8d8"
-        android:ems="10"
-        android:hint="Usuario"
-        android:inputType="textEmailAddress"
-        android:textColor="#000000"
-        android:textStyle="normal" />
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/txtUser"
-        android:text="\@uabc.edu.mx"
-        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="144dp"
+        android:text="Donaciones UABC"
         android:textColor="#000000"
-        android:layout_marginLeft="210dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        />
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/txtPass"
-        android:layout_width="190dp"
-        android:layout_height="31dp"
-        android:layout_alignTop="@+id/iconPass"
-        android:layout_marginLeft="55dp"
-        android:background="#d8d8d8"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="-83dp"
+        android:text="@string/mamalon"
         android:textColor="#000000"
-        android:textStyle="normal" />
+        android:typeface="normal"
+        app:fontFamily="sans-serif" />
 
     <Button
-        android:id="@+id/btnAcceder"
+        android:id="@+id/btnAceptar"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:layout_below="@+id/iconPass"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="-175dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
+        android:layout_marginBottom="99dp"
         android:background="@drawable/borde_redondo"
+        android:text="Aceptar"
         android:textColor="#FFFFFF"
-        android:onClick="onClickAcceder"
-        android:text="Acceder" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="71dp"
-        android:layout_marginLeft="67dp"
-        android:textColor="#1077b7"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:onClick="onClickRegistrar"
-        android:text="Registrarse" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_marginLeft="171dp"
-        android:textColor="#1077b7"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:text="Acerca de"
-        android:onClick="onClickAcercaDe"/>
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="13dp"
-        android:layout_height="19dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="155dp"
-        android:layout_marginBottom="71dp"
-        app:srcCompat="@drawable/linea" />
+        android:onClick="onClickAceptar"
+        android:textSize="13sp" />
 
 </RelativeLayout>
