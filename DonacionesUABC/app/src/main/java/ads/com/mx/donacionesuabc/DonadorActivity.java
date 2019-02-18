@@ -14,6 +14,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import ads.com.mx.donacionesuabc.Fragments.AcercaDe;
+import ads.com.mx.donacionesuabc.Fragments.InicioDonador;
+
 public class DonadorActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -24,14 +27,7 @@ public class DonadorActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -41,6 +37,11 @@ public class DonadorActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                new InicioDonador()).commit();
+        navigationView.getMenu().getItem(0).setChecked(true);
+
     }
 
     @Override
@@ -82,7 +83,8 @@ public class DonadorActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                    new InicioDonador()).commit();
         } else if (id == R.id.nav_donaciones) {
 
         } else if (id == R.id.nav_change) {
@@ -90,10 +92,8 @@ public class DonadorActivity extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_Acercade) {
-            Intent intent = new Intent(DonadorActivity.this,AcercadeActivity.class);
-            intent.putExtra("name","DonadorActivity");
-            startActivity(intent);
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                    new AcercaDe()).commit();
         } else if (id == R.id.nav_help) {
 
         } else if (id == R.id.nav_close)

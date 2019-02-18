@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFF"
-    tools:context=".LoginActivity">
+    tools:context=".AcercadeActivity">
 
 
     <ImageView
@@ -95,104 +96,111 @@
         android:layout_height="39dp"
         android:src="@drawable/header"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="140dp">
 
-    <ImageView
-        android:id="@+id/iconEmail"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignParentTop="true"
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Tipo de Donacion"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+<GridLayout
+    android:columnCount="2"
+    android:rowCount="4"
+    android:alignmentMode="alignMargins"
+    android:columnOrderPreserved="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:paddingLeft="40dp">
+        <ImageButton
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/image_border"
+            android:src="@drawable/ropa"
+            android:layout_row="0"
+            android:layout_column="0" />
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Ropa"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_gravity="center"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/image_border"
+        android:src="@drawable/utiles"
+        android:layout_row="0"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="250dp"
-        tools:srcCompat="@drawable/iconemail" />
+        android:layout_column="1" />
 
-    <ImageView
-        android:id="@+id/iconPass"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignParentBottom="true"
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Utiles"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:layout_marginLeft="80dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/image_border"
+        android:src="@drawable/electronica"
+        android:layout_row="2"
+        android:layout_marginTop="20dp"
+        android:layout_column="0"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Electronica"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:layout_marginLeft="20dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <ImageButton
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/image_border"
+        android:src="@drawable/otros"
+        android:layout_row="2"
+        android:layout_column="1"
         android:layout_marginLeft="40dp"
-        android:layout_marginBottom="230dp"
-        tools:srcCompat="@drawable/iconpass" />
-
-    <EditText
-        android:id="@+id/txtUser"
-        android:layout_width="150dp"
-        android:layout_height="31dp"
-        android:layout_alignTop="@+id/iconEmail"
-        android:layout_marginLeft="75dp"
-        android:background="#d8d8d8"
-        android:ems="10"
-        android:hint="Usuario"
-        android:inputType="textEmailAddress"
-        android:textColor="#000000"
-        android:textStyle="normal" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/txtUser"
-        android:text="\@uabc.edu.mx"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        />
-
-    <EditText
-        android:id="@+id/txtPass"
-        android:layout_width="190dp"
-        android:layout_height="31dp"
-        android:layout_alignTop="@+id/iconPass"
-        android:layout_marginLeft="75dp"
-        android:background="#d8d8d8"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textColor="#000000"
-        android:textStyle="normal" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_below="@+id/iconPass"
-        android:layout_marginLeft="200dp"
-        android:layout_marginTop="-205dp"
-        android:background="@drawable/borde_redondo"
-        android:textColor="#FFFFFF"
-        android:text="Acceder" />
+        android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="71dp"
-        android:layout_marginLeft="82dp"
-        android:textColor="#1077b7"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:text="Registrarse" />
-
-    <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView3"
-        android:layout_marginLeft="186dp"
-        android:textColor="#1077b7"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:text="Acerca de"
-        android:onClick="onClickAcercaDe"/>
+        android:text="otros"
+        android:layout_row="3"
+        android:layout_column="1"
+        android:layout_marginLeft="80dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="13dp"
-        android:layout_height="19dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="170dp"
-        android:layout_marginBottom="71dp"
-        tools:srcCompat="@drawable/linea" />
+</GridLayout>
+    </LinearLayout>
 
 </RelativeLayout>
