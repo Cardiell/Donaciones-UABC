@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFF"
-    tools:context=".RolActivity">
+    tools:context=".activities.RolActivity">
 
 
     <ImageView
         android:id="@+id/fondoNegro"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="113dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
         android:src="@drawable/footerbg" />
@@ -20,66 +19,60 @@
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="93dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="110dp"
         android:layout_marginBottom="237dp"
-        app:srcCompat="@drawable/mizquierda" />
+        android:src="@drawable/mizquierda" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="93dp"
-        android:layout_height="115dp"
-        android:layout_marginLeft="230dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="135dp"
+        android:layout_marginLeft="267dp"
+        android:layout_marginTop="110dp"
         android:layout_marginBottom="237dp"
-        app:srcCompat="@drawable/merecha" />
+        android:src="@drawable/merecha" />
 
     <ImageView
         android:id="@+id/fondoVerde"
-        android:layout_width="wrap_content"
-        android:layout_height="122dp"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="45dp"
         android:src="@drawable/verdechido" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="65dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="30dp"
         android:src="@drawable/logo" />
 
     <TextView
-        android:id="@+id/nameSchool"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/fondoNegro"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
         android:layout_marginBottom="9dp"
         android:text="Universidad Autonoma de Baja California"
         android:textColor="#FFFF"
-        android:textSize="10sp" />
-
-
+        android:textSize="11.5sp" />
 
     <ImageView
         android:id="@+id/fondoNaranja"
-        android:layout_width="180dp"
+        android:layout_width="200dp"
         android:layout_height="65dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginLeft="78dp"
+        android:layout_marginTop="73dp"
         android:src="@drawable/lineanaranja" />
 
     <TextView
@@ -87,24 +80,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/fondoNaranja"
-        android:paddingTop="35dp"
+        android:paddingTop="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginStart="122dp"
-        android:layout_marginLeft="122dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginLeft="139dp"
         android:text="Donaciones UABC"
         android:textColor="#FFFF"
-        android:textSize="10sp" />
-
-
-
+        android:textSize="11.5sp" />
 
     <ImageView
-        android:id="@+id/fondoInferior"
         android:layout_alignParentBottom="true"
+        android:id="@+id/fondoInferior"
         android:layout_width="match_parent"
-        android:layout_height="34.5dp"
+        android:layout_height="39dp"
         android:src="@drawable/header"/>
+
+
 
     <ImageButton
         android:id="@+id/btndonador"
@@ -112,10 +104,21 @@
         android:layout_height="89dp"
         android:layout_alignBottom="@+id/imageView4"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-28dp"
+        android:layout_marginBottom="-40dp"
         android:background="@drawable/image_border"
         android:onClick="onClickDonador"
         android:src="@drawable/donador" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_marginTop="290dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Donador"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <ImageButton
         android:id="@+id/btnReceptor"
@@ -123,7 +126,7 @@
         android:layout_height="95dp"
         android:layout_alignBottom="@+id/imageView4"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-156dp"
+        android:layout_marginBottom="-216dp"
         android:background="@drawable/image_border"
         android:onClick="onClickReceptor"
         android:src="@drawable/receptor" />
@@ -134,22 +137,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="49dp"
+        android:layout_marginBottom="120dp"
         android:text="Receptor"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="183dp"
-        android:text="Donador"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+
 
 </RelativeLayout>

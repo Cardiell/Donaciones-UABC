@@ -1,4 +1,4 @@
-package ads.com.mx.donacionesuabc.Fragments;
+package ads.com.mx.donacionesuabc.fragments;
 
 
 import android.os.Bundle;

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ads.com.mx.donacionesuabc">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,18 +13,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activities.VerDonacionesActivity"></activity>
+        <activity
+            android:name=".activities.RegistroArticuloActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".activities.LoginActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AcercadeActivity" />
-        <activity android:name=".RolActivity" />
-        <activity android:name=".RegistroExternoActivity" />
+        <activity android:name=".activities.AcercadeActivity" />
+        <activity android:name=".activities.RolActivity" />
         <activity
-            android:name=".DonadorActivity"
+            android:name=".activities.RegistroExternoActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name=".activities.DonadorActivity"
             android:label="@string/title_activity_donador"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

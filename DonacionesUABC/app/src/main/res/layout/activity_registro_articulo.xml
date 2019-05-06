@@ -1,0 +1,347 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFF"
+    tools:context=".activities.RegistroArticuloActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/fondoNegro"
+            android:layout_width="match_parent"
+            android:layout_height="113dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:src="@drawable/footerbg" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="93dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginBottom="237dp"
+            android:src="@drawable/mizquierda" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="93dp"
+            android:layout_height="135dp"
+            android:layout_marginLeft="267dp"
+            android:layout_marginTop="110dp"
+            android:layout_marginBottom="237dp"
+            android:src="@drawable/merecha" />
+
+        <ImageView
+            android:id="@+id/fondoVerde"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="45dp"
+            android:src="@drawable/verdechido" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/fondoNegro"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="76dp"
+            android:layout_marginLeft="76dp"
+            android:layout_marginBottom="9dp"
+            android:text="Universidad Autonoma de Baja California"
+            android:textColor="#FFFF"
+            android:textSize="11.5sp" />
+
+        <ImageView
+            android:id="@+id/fondoNaranja"
+            android:layout_width="200dp"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="78dp"
+            android:layout_marginLeft="78dp"
+            android:layout_marginTop="73dp"
+            android:src="@drawable/lineanaranja" />
+
+        <TextView
+            android:id="@+id/namePrograma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/fondoNaranja"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="139dp"
+            android:layout_marginLeft="139dp"
+            android:paddingTop="40dp"
+            android:text="Donaciones UABC"
+            android:textColor="#FFFF"
+            android:textSize="11.5sp" />
+
+        <ImageView
+            android:id="@+id/fondoInferior"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/header" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_marginTop="150dp"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:scrollbarStyle="insideOverlay">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Datos de donacion"
+                android:textColor="#000000"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+
+            <ImageButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/btnCamara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/layout_button"
+                android:layout_gravity="center_horizontal"
+                android:background="#000000"
+                android:padding="1.5dp"
+                android:onClick="onClickCamara"
+                android:src="@drawable/camara" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#000000"
+                android:text="subir imagen"/>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#9B9B9B9B" />
+
+            <LinearLayout
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre: "
+                    android:layout_weight="1"
+                    android:textColor="#000000"/>
+                <EditText
+                    android:id="@+id/edtNombre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:inputType="textAutoComplete"
+                    android:textStyle="normal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Facultad: "
+                    android:layout_weight="1"
+                    android:textColor="#000000"/>
+
+                <Spinner
+                    android:id="@+id/facultad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:entries="@array/facultad" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cantidad de Aticulos: "
+                    android:layout_weight="2"
+                    android:textColor="#000000"/>
+
+                <NumberPicker
+                    android:id="@+id/cantidad"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="2"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Dia de entrega: "
+                    android:layout_weight="2"
+                    android:textColor="#000000"/>
+
+                <Spinner
+                    android:id="@+id/dia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:entries="@array/dia" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hora de entrega: "
+                    android:layout_weight="2"
+                    android:textColor="#000000"/>
+
+                <Spinner
+                    android:id="@+id/hora"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:entries="@array/hora" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Lugar de entrega: "
+                    android:layout_weight="2"
+                    android:textColor="#000000"/>
+
+                <Spinner
+                    android:id="@+id/lugar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:entries="@array/lugar" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripcion: "
+                android:textColor="#000000"/>
+
+            <EditText
+                android:id="@+id/txtDescripcion"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="start" />
+            <Button
+                android:id="@+id/btnGuardar"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/borde_redondo"
+                android:textColor="#FFFFFF"
+                android:onClick="onClickGuardar"
+                android:text="Guardar"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
+
+<!--
+            <LinearLayout
+                android:id="@+id/layout_button"
+                android:layout_centerInParent="true"
+                android:weightSum="4"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/select_image"
+                    android:text="SELECT"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/save_image"
+                    android:text="SAVE"
+                    android:enabled="false"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout> -->

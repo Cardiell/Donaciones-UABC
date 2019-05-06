@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#D81B60</color>
+
+
+    <color name="Verde">#004025</color>
+    <color name="VerdePrimario">#0E7F40</color>
+    <color name="VerdeSecundario">#3cb64b</color>
+
+    <color name="Blanoco">#FFFFFF</color>
+    <color name="BlancoPrimario">#E3E4E5</color>
+    <color name="BlancoSecuandario">#e2e4eb</color>
+
+    <color name="Rojo">#7C0A00</color>
+    <color name="RojoPrimario">#EF242D</color>
+
+    <color name="Anaranjado">#db5d20</color>
+    <color name="AnaranjadoPrimario">#f7931e</color>
+
+    <color name="Amarillo">#FFD600</color>
+    <color name="AmarilloPrimario">#fdd500</color>
+    <color name="AmarilloSecundario">#fff100</color>
+
+    <color name="Creama">#F1EAA2</color>
+    <color name="CremaPrimario">#F9F999</color>
+    <color name="CremaSecundario">#F5F7C5</color>
+
+    <color name="transparenciaNegra">#90000000</color>
+
+    <!-- _______________________ Nueva Interfas Sensilla _______________________ -->
+    <!-- Interfas Login -->
+    <color name="fondoLogin">#eeeeee</color>
+
+    <color name="fondoBotonPrim">#178fbb</color>
+    <!-- <color name="bordeBoton">#178fbb</color> -->
+    <!-- <color name="letraBoton">#ffffff</color> definido en @android:color -->
+
+    <color name="fondoBotonSec">#333333</color>
+    <!-- <color name="bordeBotonSec">#333333</color> -->
+    <!-- <color name="letraBoton">#ffffff</color> definido en @android:color -->
+
+    <!-- <color name="findoEditText">#ffffff</color> definido en @android:color -->
+    <color name="bordeEditText">#cccccc</color>
+    <!-- <color name="letraEditText">#000000</color> definido en @android:color -->
+
+    <!-- Interfas User -->
+    <color name="fondoUser">#EEEEEE</color>
+    <color name="fondoIniUser">#6eb9d4</color>
+    <color name="fondoFinUser">#a8d5e5</color>
+
+    <!-- <color name="textUser">#428fbb</color> -->
+    <color name="textUser">#FFFFFF</color>
+    <!--
+    <color name="fondoIniBarra">#cccccc</color>
+    <color name="fondoFinBarra">#b8b8b8</color> -->
+    <color name="fondoIniBarra">#395478</color>
+    <color name="fondoFinBarra">#566d8c</color>
+
+    <color name="colorIcon">#178fbb</color>
+    <!--
+    <color name="fondoDiv">#d6d6d6</color>
+    <color name="sombraDiv">#f7f7f7</color> -->
+    <color name="fondoDiv">#1d3c65</color>
+    <color name="sombraDiv">#aab6c5</color>
+
+    <!-- Consultas para agregar y Modificasion -->
+    <color name="textColor">#000000</color>
+    <color name="buttonConsulta">#000000</color>
+    <color name="bordeButoonConsulta">#000000</color>
 </resources>

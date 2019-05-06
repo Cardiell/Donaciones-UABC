@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFF"
-    tools:context=".AcercadeActivity">
+    tools:context=".fragments.InicioDonador">
 
 
     <ImageView
@@ -121,6 +121,7 @@
     android:paddingTop="10dp"
     android:paddingLeft="40dp">
         <ImageButton
+            android:id="@+id/btnRopa"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:background="@drawable/image_border"
@@ -140,13 +141,14 @@
         android:textStyle="bold"/>
 
     <ImageButton
+        android:id="@+id/btnUtiles"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/image_border"
         android:src="@drawable/utiles"
         android:layout_row="0"
         android:layout_marginLeft="40dp"
-        android:layout_column="1" />
+        android:layout_column="1"/>
 
     <TextView
         android:layout_height="wrap_content"
@@ -160,6 +162,7 @@
         android:textStyle="bold"/>
 
     <ImageButton
+        android:id="@+id/btnElectronica"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/image_border"
@@ -180,6 +183,7 @@
         android:textStyle="bold"/>
 
     <ImageButton
+        android:id="@+id/btnOtros"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/image_border"

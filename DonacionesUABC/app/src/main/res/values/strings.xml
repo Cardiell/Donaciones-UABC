@@ -13,4 +13,50 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string-array name="facultad">
+        <item>Ciencias Quimicas e Ingenieria</item>
+        <item>Odontologia</item>
+        <item>Artes</item>
+        <item>Deportes</item>
+        <item>Medicina</item>
+        <item>Derecho</item>
+        <item>Economia</item>
+        <item>Comunicaciones</item>
+    </string-array>
+
+    <string-array name="dia">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+    </string-array>
+
+    <string-array name="lugar">
+        <item>Cafeteria</item>
+        <item>Biblioteca</item>
+        <item>Bicerrectoria</item>
+        <item>Piano de la cafeteria</item>
+        <item>etc...</item>
+    </string-array>
+
+    <string-array name="hora">
+        <item>07:00 am</item>
+        <item>08:00 am</item>
+        <item>09:00 am</item>
+        <item>10:00 am</item>
+        <item>11:00 am</item>
+        <item>12:00 pm</item>
+        <item>01:00 pm</item>
+        <item>02:00 pm</item>
+        <item>03:00 pm</item>
+        <item>04:00 pm</item>
+        <item>05:00 pm</item>
+        <item>06:00 pm</item>
+        <item>07:00 pm</item>
+        <item>08:00 pm</item>
+        <item>09:00 pm</item>
+        <item>10:00 pm</item>
+    </string-array>
+
 </resources>
