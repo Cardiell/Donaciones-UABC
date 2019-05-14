@@ -17,7 +17,7 @@ import java.sql.Statement;
  *                                                    *
  ******************************************************/
 public class Conexion{
-    private String IP = "192.168.0.9";
+    private String IP = "ads2019.myddns.me";
     private String DB = "ADS";
     private String DBUser = "sa";
     private String DBPWD = "sqlserver";
