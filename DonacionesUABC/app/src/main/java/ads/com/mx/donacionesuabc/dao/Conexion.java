@@ -17,10 +17,10 @@ import java.sql.Statement;
  *                                                    *
  ******************************************************/
 public class Conexion{
-    private String IP = "ads2019.myddns.me";
+    private String IP = "uabc.database.windows.net";
     private String DB = "ADS";
-    private String DBUser = "sa";
-    private String DBPWD = "sqlserver";
+    private String DBUser = "cardiell";
+    private String DBPWD = "Sqlserver123";
 
     @SuppressLint("NewApi")
 
