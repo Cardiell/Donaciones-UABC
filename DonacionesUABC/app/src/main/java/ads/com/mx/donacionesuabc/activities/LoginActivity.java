@@ -26,18 +26,25 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
-        UsuarioDAO consulta = new UsuarioDAO();
-        Usuario user = consulta.consultaUsuario(leerValor("correo"),leerValor("pass"));
+        Usuario user = new UsuarioDAO().consultaUsuario(leerValor("correo"),leerValor("pass"));
         if(user== null){
             setContentView(R.layout.activity_login);
             getSupportActionBar().hide();
             initComponents();
         }else {
-            Intent intent = new Intent(this, DonadorActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
-            intent.putExtra("user", user);
-            startActivity(intent);
-            finish();
+            if(user.isRol()) {
+                Intent intent = new Intent(this, DonadorActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
+            }else{
+                Intent intent = new Intent(this, ReceptorActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
+                intent.putExtra("user", user);
+                startActivity(intent);
+                finish();
+            }
         }
     }
 
@@ -68,11 +75,19 @@ public class LoginActivity extends AppCompatActivity {
 
             if(user != null) {
                 if(user.isAcceso()){
-                    Intent intent = new Intent(LoginActivity.this, DonadorActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
-                    intent.putExtra("user", user);
-                    startActivity(intent);
-                    finish();
+                    if(user.isRol()) {
+                        Intent intent = new Intent(LoginActivity.this, DonadorActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
+                        intent.putExtra("user", user);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Intent intent = new Intent(LoginActivity.this, ReceptorActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
+                        intent.putExtra("user", user);
+                        startActivity(intent);
+                        finish();
+                    }
                 }else {
                     Intent intent = new Intent(LoginActivity.this, RolActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)

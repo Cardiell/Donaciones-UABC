@@ -16,6 +16,7 @@ import java.util.List;
 
 import ads.com.mx.donacionesuabc.Lista;
 import ads.com.mx.donacionesuabc.R;
+import ads.com.mx.donacionesuabc.activities.DonadorActivity;
 import ads.com.mx.donacionesuabc.dao.ArticuloDAO;
 import ads.com.mx.donacionesuabc.entidades.Articulo;
 
@@ -53,7 +54,8 @@ public class DonacionesFragment extends Fragment {
     }
 
     public void cargarLista(){
-        List<Articulo> arti =new ArticuloDAO().ListarArticulos();
+        List<Articulo> arti =new ArticuloDAO().listarxUsuario(DonadorActivity.user.getIdUsuario());
+        lista.addProducto(new Articulo());
         for (Articulo articulo : arti){
             lista.addProducto(articulo);
         }

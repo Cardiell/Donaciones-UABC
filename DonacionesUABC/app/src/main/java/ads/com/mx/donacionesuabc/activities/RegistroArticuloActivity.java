@@ -1,8 +1,11 @@
 package ads.com.mx.donacionesuabc.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,9 +15,14 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 import ads.com.mx.donacionesuabc.R;
 import ads.com.mx.donacionesuabc.Utils;
@@ -24,11 +32,13 @@ import ads.com.mx.donacionesuabc.entidades.Articulo;
 public class RegistroArticuloActivity extends AppCompatActivity {
 
     byte[] imagen;
+    private Bitmap bitmap;
     String facultad,dia,hora,lugar,entrega;
     public boolean photo=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_articulo);
         initComponents();
@@ -41,8 +51,7 @@ public class RegistroArticuloActivity extends AppCompatActivity {
         spnLugar= (Spinner)findViewById(R.id.lugar);
         txtNombre = (EditText)findViewById(R.id.edtNombre);
         edtDescripcion = (EditText)findViewById(R.id.txtDescripcion);
-        btnGuardar = (Button)findViewById(R.id.btnGuardar);
-        btnCamara = (ImageButton)findViewById(R.id.btnCamara);
+        imgCamara = (ImageView)findViewById(R.id.imageCamara);
         np = findViewById(R.id.cantidad);
         np.setMinValue(1);
         np.setMaxValue(20);
@@ -84,7 +93,7 @@ public class RegistroArticuloActivity extends AppCompatActivity {
         });
     }
 
-    public void onClickCamara(View view){
+    public void onClickCamara(View view){//MediaStore.ACTION_IMAGE_CAPTURE
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent,0);
     }
@@ -97,7 +106,9 @@ public class RegistroArticuloActivity extends AppCompatActivity {
         int cantidad = Integer.valueOf(np.getValue());
         if(photo){
             if(isEmptyTxt(txtNombre)) {
-                new ArticuloDAO().AgregarArticulo(new Articulo(String.valueOf(txtNombre.getText()), cantidad, facultad, dia, hora, lugar, imagen, String.valueOf(edtDescripcion.getText())));
+                    System.out.println("idUsuario ->"+DonadorActivity.user.getIdUsuario());
+                System.out.println("correo ->"+DonadorActivity.user.getCorreo());
+                    new ArticuloDAO().AgregarArticulo(new Articulo(DonadorActivity.user.getIdUsuario(),String.valueOf(txtNombre.getText()), cantidad,imagen, facultad, dia, hora, lugar, String.valueOf(edtDescripcion.getText())));
                 finish();
                 Toast.makeText(this,"Datos guardados satisfactoriamente",Toast.LENGTH_SHORT).show();
             }else
@@ -109,13 +120,19 @@ public class RegistroArticuloActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bitmap bitmap = (Bitmap)data.getExtras().get("data");
-        imagen = Utils.getBytes(bitmap);
-        btnCamara.setImageBitmap(bitmap);
-        photo = true;
+        if(requestCode ==0 && resultCode == RESULT_OK){
+            Bitmap bitmap = (Bitmap)data.getParcelableExtra("data");
+            //Bitmap bit = BitmapFactory.decodeResource(getResources(),"data");
+            Bitmap scaled = Bitmap.createScaledBitmap(bitmap,230,200,false);
+            imgCamara.setImageBitmap(scaled);
+            imagen = Utils.getBytes(scaled);
+            photo = true;
+        }
+
     }
 
-    private ImageButton btnCamara;
+
+    private ImageView imgCamara;
     private NumberPicker np;
     private Spinner spnFacultad;
     private Spinner spnDia;
@@ -123,5 +140,4 @@ public class RegistroArticuloActivity extends AppCompatActivity {
     private Spinner spnLugar;
     private EditText txtNombre;
     private EditText edtDescripcion;
-    private Button btnGuardar;
 }

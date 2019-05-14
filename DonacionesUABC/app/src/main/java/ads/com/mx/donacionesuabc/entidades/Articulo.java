@@ -5,26 +5,44 @@ import java.io.Serializable;
 public class Articulo implements Serializable {
 
     private int idProducto;
+    private int idUsuario;
     private String nombre;
     private int cantidad;
+    private byte[] imagen;
+    private int solicitud;
     private String facultad;
     private String dia;
     private String hora;
     private String lugar;
-    private byte[] imagen;
     private String descripcion;
-
-    public int getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
-    }
 
     public Articulo(){}
 
+    public Articulo(int idUsuario, String nombre, int cantidad, byte[] imagen, String facultad, String dia, String hora, String lugar, String descripcion) {
+        this.idUsuario = idUsuario;
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.imagen = imagen;
+        this.facultad = facultad;
+        this.dia = dia;
+        this.hora = hora;
+        this.lugar = lugar;
+        this.descripcion = descripcion;
+    }
+
     public Articulo(String nombre, int cantidad, String facultad, String dia, String hora, String lugar, byte[] imagen, String descripcion) {
+        this.nombre = nombre;
+        this.cantidad = cantidad;
+        this.facultad = facultad;
+        this.dia = dia;
+        this.hora = hora;
+        this.lugar = lugar;
+        this.imagen = imagen;
+        this.descripcion = descripcion;
+    }
+
+    public Articulo(int idProducto, String nombre, int cantidad, String facultad, String dia, String hora, String lugar, byte[] imagen, String descripcion) {
+        this.idProducto = idProducto;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.facultad = facultad;
@@ -39,16 +57,28 @@ public class Articulo implements Serializable {
         return nombre;
     }
 
-    public Articulo(int idProducto, String nombre, int cantidad, String facultad, String dia, String hora, String lugar, byte[] imagen, String descripcion) {
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getSolicitud() {
+        return solicitud;
+    }
+
+    public void setSolicitud(int solicitud) {
+        this.solicitud = solicitud;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
-        this.nombre = nombre;
-        this.cantidad = cantidad;
-        this.facultad = facultad;
-        this.dia = dia;
-        this.hora = hora;
-        this.lugar = lugar;
-        this.imagen = imagen;
-        this.descripcion = descripcion;
     }
 
     public void setNombre(String nombre) {

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/Ropa"
+        android:orderInCategory="100"
+        android:title="Ropa"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/Utiles"
+        android:orderInCategory="100"
+        android:title="Utiles"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/Electronicos"
+        android:orderInCategory="100"
+        android:title="Electronicos"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/Otros"
+        android:orderInCategory="100"
+        android:title="Otros"
+        app:showAsAction="never" />
+</menu>

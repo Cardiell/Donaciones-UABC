@@ -108,7 +108,7 @@
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="5dp"
+            android:paddingTop="25dp"
             android:orientation="vertical">
 
 
@@ -135,34 +135,16 @@
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Apellido paterno"
+                android:text="Apellidos"
                 android:textColor="#b71241" />
 
             <EditText
-                android:id="@+id/txtApellidoP"
+                android:id="@+id/txtApellidos"
                 android:layout_width="272dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#b71241"
                 android:ems="10"
-                android:hint="Apellido paterno"
-                android:inputType="textPersonName"
-                android:singleLine="true"
-                android:textColor="#000000"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apellido materno"
-                android:textColor="#b71241" />
-
-            <EditText
-                android:id="@+id/txtApellidoM"
-                android:layout_width="272dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#b71241"
-                android:ems="10"
-                android:hint="Apellido materno"
+                android:hint="Apellidos"
                 android:inputType="textPersonName"
                 android:singleLine="true"
                 android:textColor="#000000"
@@ -250,7 +232,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/borde_redondo"
                 android:onClick="onClickAceptar"
-                android:text="Registrar"
+                android:text="Aceptar"
                 android:layout_marginBottom="40dp"
                 android:textColor="#FFFFFF" />
         </LinearLayout>

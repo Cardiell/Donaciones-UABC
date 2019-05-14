@@ -33,11 +33,12 @@ public class UsuarioDAO {
             rs = cstm.executeQuery();
             if(rs.next()){
                 usuario = new Usuario();
+                usuario.setIdUsuario(rs.getInt("idUsuario"));
                 usuario.setCorreo(rs.getString("correo"));
                 usuario.setPassword(rs.getString("password"));
                 usuario.setIdPersona(rs.getInt("idPersona"));
                 usuario.setAcceso(rs.getBoolean("acceso"));
-                usuario.setRol(rs.getBoolean("rol"));
+                usuario.setRol(rs.getBoolean("idRol"));
                 usuario.setTipo(rs.getBoolean("tipo"));
 
             }
@@ -83,7 +84,6 @@ public class UsuarioDAO {
             cstm = con.prepareCall("{Call UpdateUsuario(?,?,?,?,?,?)}");
             cstm.setString(1, user.getCorreo());
             cstm.setString(2,user.getPassword());
-            System.out.println("===========> Aqui-----> "+user.getIdPersona());
             cstm.setInt(3,user.getIdPersona());
             cstm.setBoolean(4,user.isAcceso());
             cstm.setBoolean(5,user.isRol());

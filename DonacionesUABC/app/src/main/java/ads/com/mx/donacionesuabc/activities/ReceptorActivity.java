@@ -5,78 +5,84 @@ import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.NavigationView;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.MenuItem;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 
+import ads.com.mx.donacionesuabc.R;
 import ads.com.mx.donacionesuabc.dao.PersonaDao;
 import ads.com.mx.donacionesuabc.dao.UsuarioDAO;
 import ads.com.mx.donacionesuabc.entidades.Persona;
 import ads.com.mx.donacionesuabc.entidades.Usuario;
 import ads.com.mx.donacionesuabc.fragments.AcercaDe;
-import ads.com.mx.donacionesuabc.fragments.DonacionesFragment;
-import ads.com.mx.donacionesuabc.fragments.InicioDonador;
-import ads.com.mx.donacionesuabc.R;
+import ads.com.mx.donacionesuabc.fragments.InicioReceptor;
 
-public class DonadorActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ReceptorActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static Usuario usuario;
     private static String PREFS_KEY = "XD";
     private SharedPreferences.Editor mEditor;
-
-    public static Usuario user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donador);
+        setContentView(R.layout.activity_receptor);
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
-                user= null;
+                usuario= null;
             } else {
-                user= (Usuario)extras.get("user");
+                usuario= (Usuario)extras.get("user");
             }
         } else {
-            user= (Usuario) savedInstanceState.getSerializable("user");
+            usuario= (Usuario) savedInstanceState.getSerializable("user");
         }
 
-        guardarValor("correo",user.getCorreo());
-        guardarValor("pass",user.getPassword());
+        guardarValor("correo",usuario.getCorreo());
+        guardarValor("pass",usuario.getPassword());
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layouter);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView)findViewById(R.id.nav_viewer);
         navigationView.setNavigationItemSelectedListener(this);
+
         txtCorreo = navigationView.getHeaderView(0).findViewById(R.id.menuCorreo);
         txtNombre = navigationView.getHeaderView(0).findViewById(R.id.textNombre);
-        txtCorreo.setText(user.getCorreo());
-        Persona per = new PersonaDao().DamePersona(user.getIdPersona());
+        txtCorreo.setText(usuario.getCorreo());
+
+        Persona per = new PersonaDao().DamePersona(usuario.getIdPersona());
         txtNombre.setText(per.getNombre()+" "+per.getApellidoP()+" "+per.getApellidoM());
-        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,new InicioDonador()).commit();
+        System.out.println("Aqui Receptor");
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,new InicioReceptor()).commit();
+
+        navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
-        user = new UsuarioDAO().consultaUsuario(user.getCorreo(),user.getPassword());
-
+        usuario = new UsuarioDAO().consultaUsuario(usuario.getCorreo(),usuario.getPassword());
     }
-
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layouter);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -86,11 +92,22 @@ public class DonadorActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.donador, menu);
+        getMenuInflater().inflate(R.menu.receptor, menu);
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.Ropa) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -100,37 +117,32 @@ public class DonadorActivity extends AppCompatActivity implements NavigationView
 
         if (id == R.id.nav_home) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
-                    new InicioDonador()).commit();
+                    new InicioReceptor()).commit();
         } else if (id == R.id.nav_donaciones) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
-                    new DonacionesFragment()).commit();
 
         } else if (id == R.id.nav_change) {
-            user.setRol(false);
-            new UsuarioDAO().UpdateUsuario(user);
-            Intent intent = new Intent(DonadorActivity.this,ReceptorActivity.class);
-            intent.putExtra("user", user);
+            usuario.setRol(true);
+            new UsuarioDAO().UpdateUsuario(usuario);
+            Intent intent = new Intent(ReceptorActivity.this,DonadorActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("user", usuario);
             startActivity(intent);
-
-        } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_Acercade) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     new AcercaDe()).commit();
+
         } else if (id == R.id.nav_help) {
 
-        } else if (id == R.id.nav_close)
-        {
+        } else if (id == R.id.nav_close) {
             guardarValor("correo","...");
-            Intent intent = new Intent(DonadorActivity.this,LoginActivity.class);
+            Intent intent = new Intent(ReceptorActivity.this,LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
             startActivity(intent);
             finish();
-
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layouter);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -144,5 +156,4 @@ public class DonadorActivity extends AppCompatActivity implements NavigationView
 
     private TextView txtNombre;
     private TextView txtCorreo;
-
 }

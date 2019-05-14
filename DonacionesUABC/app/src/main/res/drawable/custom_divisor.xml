@@ -13,15 +13,15 @@
         android:top="6dp"
         android:bottom="3dp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/sombraDiv"/>
+            <solid android:color="#fff"/>
         </shape>
     </item>
     <item android:left="3dp"
         android:right="6dp"
-        android:top="3dp"
-        android:bottom="6dp">
+        android:top="2dp"
+        android:bottom="2dp">
         <shape android:shape="rectangle">
-            <solid android:color="@color/fondoDiv"/>
+            <solid android:color="#000"/>
         </shape>
     </item>
     <item android:left="0dp"
@@ -30,8 +30,8 @@
         android:bottom="9dp">
         <shape android:shape="rectangle">
             <gradient android:angle="45"
-                android:startColor="@color/fondoIniUser"
-                android:endColor="@color/fondoFinUser"/>
+                android:startColor="#fff"
+                android:endColor="#fff"/>
         </shape>
     </item>
 </layer-list>

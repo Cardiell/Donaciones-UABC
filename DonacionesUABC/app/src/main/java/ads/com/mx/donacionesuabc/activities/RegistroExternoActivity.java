@@ -17,6 +17,10 @@ import ads.com.mx.donacionesuabc.entidades.Usuario;
 
 public class RegistroExternoActivity extends AppCompatActivity {
 
+    String espacio = " ";
+    private String apellidoP = "";
+    private String apellidoM = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -29,8 +33,7 @@ public class RegistroExternoActivity extends AppCompatActivity {
 
     private void initComponent(){
         txtNombre = (EditText)findViewById(R.id.txtNombre);
-        txtApellidoP = (EditText)findViewById(R.id.txtApellidoP);
-        txtApellidoM = (EditText)findViewById(R.id.txtApellidoM);
+        txtApellidos = (EditText)findViewById(R.id.txtApellidos);
         txtCorreo = (EditText)findViewById(R.id.txtCorreo);
         txtPassword = (EditText)findViewById(R.id.txtPass1);
         txtPasswordConfirma = (EditText)findViewById(R.id.txtPass2);
@@ -48,12 +51,15 @@ public class RegistroExternoActivity extends AppCompatActivity {
     }
 
     public void onClickAceptar(View view){
-        if(isEmptyTxt(txtNombre)&&isEmptyTxt(txtApellidoP)&&isEmptyTxt(txtApellidoM)&&isEmptyTxt(txtTelefono)&&isEmptyTxt(txtCorreo)&&isEmptyTxt(txtPassword)) {
+        if(isEmptyTxt(txtNombre)&&isEmptyTxt(txtApellidos)&&isEmptyTxt(txtTelefono)&&isEmptyTxt(txtCorreo)&&isEmptyTxt(txtPassword)) {
             if (toStringTxt(txtPasswordConfirma).equals(toStringTxt(txtPassword))) {
-                Persona persona = new Persona(toStringTxt(txtNombre), toStringTxt(txtApellidoP), toStringTxt(txtApellidoM), toStringTxt(txtTelefono));
+                //filtrar apellidos.....
+                apellidoP = toStringTxt(txtApellidos).substring(0,toStringTxt(txtApellidos).indexOf(espacio));
+                apellidoM = toStringTxt(txtApellidos).substring(toStringTxt(txtApellidos).indexOf(espacio)+1,toStringTxt(txtApellidos).length());
+                Persona persona = new Persona(toStringTxt(txtNombre), apellidoP,apellidoM, toStringTxt(txtTelefono));
                 new PersonaDao().agregarPersona(persona);
                 Persona temp = new PersonaDao().endPersona();
-                Usuario user = new Usuario(txtCorreo.getText().toString(), txtPassword.getText().toString(), true, true, true, temp.getIdPersona());
+                Usuario user = new Usuario(toStringTxt(txtCorreo), toStringTxt(txtPassword), temp.getIdPersona(), true, true, true);
                 new UsuarioDAO().agregarUsuario(user);
                 Intent intent = new Intent(RegistroExternoActivity.this, DonadorActivity.class);
                 intent.putExtra("user", user);
@@ -67,8 +73,7 @@ public class RegistroExternoActivity extends AppCompatActivity {
     }
 
     private EditText txtNombre;
-    private EditText txtApellidoP;
-    private EditText txtApellidoM;
+    private EditText txtApellidos;
     private EditText txtCorreo;
     private EditText txtPassword;
     private EditText txtPasswordConfirma;

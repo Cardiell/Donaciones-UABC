@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.VerDonacionesActivity"></activity>
+        <activity
+            android:name=".activities.ReceptorActivity"
+            android:label="@string/title_activity_receptor"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.VerDonacionesActivity" />
         <activity
             android:name=".activities.RegistroArticuloActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />

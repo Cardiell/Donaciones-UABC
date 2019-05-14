@@ -47,7 +47,12 @@ public class RolActivity extends AppCompatActivity {
     }
 
     public void onClickReceptor(View view){
-
+        user.setRol(false);
+        user.setAcceso(true);
+        new UsuarioDAO().UpdateUsuario(user);
+        Intent intent = new Intent(RolActivity.this,ReceptorActivity.class);
+        intent.putExtra("user",user);
+        startActivity(intent);
     }
 
     @Override

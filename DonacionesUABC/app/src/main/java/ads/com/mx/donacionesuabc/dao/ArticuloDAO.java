@@ -79,6 +79,10 @@ public class ArticuloDAO{
         return(lista);
     }
 
+
+
+
+
     public Articulo consultaNombre(String nombre){
         Connection con = null;
         ResultSet rs = null;
@@ -115,15 +119,16 @@ public class ArticuloDAO{
         try {
             con = conexion.getConexion();
             con.setAutoCommit(false);
-            cstm = con.prepareCall("{Call guardaArticulo(?,?,?,?,?,?,?,?)}");
-            cstm.setString(1, art.getNombre());
-            cstm.setInt(2,art.getCantidad());
-            cstm.setString(3,art.getFacultad());
-            cstm.setString(4,art.getDia());
-            cstm.setString(5,art.getHora());
-            cstm.setString(6,art.getLugar());
-            cstm.setBytes(7,art.getImagen());
-            cstm.setString(8,art.getDescripcion());
+            cstm = con.prepareCall("{Call guardaArticulo(?,?,?,?,?,?,?,?,?)}");
+            cstm.setInt(1,art.getIdUsuario());
+            cstm.setString(2, art.getNombre());
+            cstm.setInt(3,art.getCantidad());
+            cstm.setBytes(4,art.getImagen());
+            cstm.setString(5,art.getFacultad());
+            cstm.setString(6,art.getDia());
+            cstm.setString(7,art.getHora());
+            cstm.setString(8,art.getLugar());
+            cstm.setString(9,art.getDescripcion());
             resp = cstm.execute();
             con.commit();
         } catch (SQLException e){
@@ -134,6 +139,40 @@ public class ArticuloDAO{
             conexion.Cerrar1(con, cstm);
         }
         return resp;
+    }
+
+
+
+    public List<Articulo> listarxUsuario(int idUsuario){
+        Connection con = null;
+        ResultSet rs = null;
+        CallableStatement cstm = null;
+        List<Articulo> lista = null;
+
+
+        String query = "exec ListarxUsuario "+idUsuario;
+        try{
+            lista = new ArrayList<>();
+            con = conexion.getConexion();
+            cstm = con.prepareCall(query);
+            rs = cstm.executeQuery();
+            Articulo articulo = null;
+            while(rs.next()){
+
+                articulo = new Articulo();
+                articulo.setIdProducto(rs.getInt("idProducto"));
+                articulo.setNombre(rs.getString("nombre"));
+                articulo.setCantidad(rs.getInt("cantidad"));
+                lista.add(articulo);
+
+            }
+        }catch(Exception e) {
+            System.err.println("Tenemos una excepcion: "+e.getMessage());
+
+        }finally {
+            conexion.Cerrar2(cstm,rs); //Cerrar conexion
+        }
+        return(lista);
     }
 
     public List<Articulo> ListarArticulos() {
@@ -150,13 +189,15 @@ public class ArticuloDAO{
             while (rs.next()) {
                 art = new Articulo();
                 art.setIdProducto(rs.getInt("idProducto"));
+                art.setIdUsuario(rs.getInt("idUsuario"));
                 art.setNombre(rs.getString("nombre"));
                 art.setCantidad(rs.getInt("cantidad"));
+                art.setImagen(rs.getBytes("imagen"));
+                art.setSolicitud(rs.getInt("idSolicitud"));
                 art.setFacultad(rs.getString("facultad"));
                 art.setDia(rs.getString("dia"));
                 art.setHora(rs.getString("hora"));
                 art.setLugar(rs.getString("lugar"));
-                art.setImagen(rs.getBytes("imagen"));
                 art.setDescripcion(rs.getString("descripcion"));
 
                 lista.add(art);

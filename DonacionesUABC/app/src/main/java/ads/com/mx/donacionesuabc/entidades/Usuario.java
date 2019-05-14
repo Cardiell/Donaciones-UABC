@@ -3,24 +3,35 @@ package ads.com.mx.donacionesuabc.entidades;
 import java.io.Serializable;
 
 public class Usuario  extends Persona implements Serializable{
+    private int idUsuario;
     private String correo;
     private String password;
+    private int idPersona;
     private boolean acceso;
     private boolean rol;
     private boolean tipo;
-    private int idPersona;
 
-
-    public Usuario(){}
-
-    public Usuario(String correo, String password, boolean acceso, boolean rol, boolean tipo, int idPersona) {
+    public Usuario(int idUsuario,String correo, String password, int idPersona, boolean acceso, boolean rol, boolean tipo) {
+        this.idUsuario = idUsuario;
         this.correo = correo;
         this.password = password;
+        this.idPersona = idPersona;
         this.acceso = acceso;
         this.rol = rol;
         this.tipo = tipo;
-        this.idPersona = idPersona;
     }
+
+    public Usuario(String correo, String password, int idPersona, boolean acceso, boolean rol, boolean tipo) {
+        this.correo = correo;
+        this.password = password;
+        this.idPersona = idPersona;
+        this.acceso = acceso;
+        this.rol = rol;
+        this.tipo = tipo;
+    }
+
+    public Usuario(){}
+
 
     @Override
     public int getIdPersona() {
@@ -31,6 +42,16 @@ public class Usuario  extends Persona implements Serializable{
     public void setIdPersona(int idPersona) {
         this.idPersona = idPersona;
     }
+
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
 
     public String getCorreo() {
         return correo;

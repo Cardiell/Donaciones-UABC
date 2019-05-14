@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_donaciones"
+            android:icon="@drawable/ic_favorite"
+            android:title="Deseos" />
+        <item
+            android:id="@+id/nav_change"
+            android:icon="@drawable/ic_swap_horiz_48dp"
+            android:title="Cambiar a Donaciones" />
+        <item
+            android:id="@+id/nav_Acercade"
+            android:icon="@drawable/ic_action_nameef"
+            android:title="Acerca del sistema" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/ic_help"
+            android:title="Ayuda" />
+
+        <item
+            android:id="@+id/nav_close"
+            android:icon="@drawable/ic_exit_to_app"
+            android:title="Cerrar Sesion" />
+
+    </group>
+
+</menu>

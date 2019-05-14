@@ -119,18 +119,23 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
-
-            <ImageButton
-                android:layout_marginTop="10dp"
-                android:id="@+id/btnCamara"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/layout_button"
-                android:layout_gravity="center_horizontal"
-                android:background="#000000"
-                android:padding="1.5dp"
+                android:layout_gravity="center"
                 android:onClick="onClickCamara"
-                android:src="@drawable/camara" />
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/imageCamara"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/camara" />
+
+            </LinearLayout>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
