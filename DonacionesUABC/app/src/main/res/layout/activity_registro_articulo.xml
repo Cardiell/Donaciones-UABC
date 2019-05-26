@@ -304,11 +304,14 @@
 
             <EditText
                 android:id="@+id/txtDescripcion"
+                style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                android:gravity="start" />
+                android:layout_marginRight="20dp"
+                android:gravity="start"
+                android:hint="Ingresa una descripcion"
+                tools:visibility="visible" />
             <Button
                 android:id="@+id/btnGuardar"
                 android:layout_marginTop="30dp"

@@ -25,6 +25,7 @@ import ads.com.mx.donacionesuabc.dao.UsuarioDAO;
 import ads.com.mx.donacionesuabc.entidades.Persona;
 import ads.com.mx.donacionesuabc.entidades.Usuario;
 import ads.com.mx.donacionesuabc.fragments.AcercaDe;
+import ads.com.mx.donacionesuabc.fragments.AyudaReceptorFragment;
 import ads.com.mx.donacionesuabc.fragments.InicioReceptor;
 
 public class ReceptorActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -118,9 +119,12 @@ public class ReceptorActivity extends AppCompatActivity implements NavigationVie
         if (id == R.id.nav_home) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     new InicioReceptor()).commit();
+
         } else if (id == R.id.nav_donaciones) {
 
+
         } else if (id == R.id.nav_change) {
+
             usuario.setRol(true);
             new UsuarioDAO().UpdateUsuario(usuario);
             Intent intent = new Intent(ReceptorActivity.this,DonadorActivity.class);
@@ -133,7 +137,8 @@ public class ReceptorActivity extends AppCompatActivity implements NavigationVie
                     new AcercaDe()).commit();
 
         } else if (id == R.id.nav_help) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                    new AyudaReceptorFragment()).commit();
         } else if (id == R.id.nav_close) {
             guardarValor("correo","...");
             Intent intent = new Intent(ReceptorActivity.this,LoginActivity.class);

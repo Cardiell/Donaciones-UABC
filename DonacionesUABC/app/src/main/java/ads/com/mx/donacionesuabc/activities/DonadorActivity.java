@@ -20,6 +20,7 @@ import ads.com.mx.donacionesuabc.dao.UsuarioDAO;
 import ads.com.mx.donacionesuabc.entidades.Persona;
 import ads.com.mx.donacionesuabc.entidades.Usuario;
 import ads.com.mx.donacionesuabc.fragments.AcercaDe;
+import ads.com.mx.donacionesuabc.fragments.AyudaDonadorFragment;
 import ads.com.mx.donacionesuabc.fragments.CompartirFragment;
 import ads.com.mx.donacionesuabc.fragments.DonacionesFragment;
 import ads.com.mx.donacionesuabc.fragments.InicioDonador;
@@ -119,7 +120,8 @@ public class DonadorActivity extends AppCompatActivity implements NavigationView
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     new AcercaDe()).commit();
         } else if (id == R.id.nav_help) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                    new AyudaDonadorFragment()).commit();
         } else if (id == R.id.nav_close)
         {
             guardarValor("correo","...");

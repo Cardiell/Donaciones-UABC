@@ -6,10 +6,14 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,6 +24,7 @@ import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,8 +36,11 @@ import ads.com.mx.donacionesuabc.entidades.Articulo;
 
 public class RegistroArticuloActivity extends AppCompatActivity {
 
-    byte[] imagen;
+
+    private static final int COD_PHOTO = 20;
     private Bitmap bitmap;
+
+    byte[] imagen;
     String facultad,dia,hora,lugar,entrega;
     public boolean photo=false;
 
@@ -95,7 +103,8 @@ public class RegistroArticuloActivity extends AppCompatActivity {
 
     public void onClickCamara(View view){//MediaStore.ACTION_IMAGE_CAPTURE
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,0);
+        startActivityForResult(intent,COD_PHOTO);
+
     }
 
     public boolean isEmptyTxt(EditText txt){
@@ -120,10 +129,11 @@ public class RegistroArticuloActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode ==0 && resultCode == RESULT_OK){
+        if(requestCode ==COD_PHOTO && resultCode == RESULT_OK){
+
             Bitmap bitmap = (Bitmap)data.getParcelableExtra("data");
             //Bitmap bit = BitmapFactory.decodeResource(getResources(),"data");
-            Bitmap scaled = Bitmap.createScaledBitmap(bitmap,230,200,false);
+            Bitmap scaled = Bitmap.createScaledBitmap(bitmap,250,300,true);
             imgCamara.setImageBitmap(scaled);
             imagen = Utils.getBytes(scaled);
             photo = true;
