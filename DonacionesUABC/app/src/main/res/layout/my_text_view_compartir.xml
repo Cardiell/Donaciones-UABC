@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:paddingTop="10dp"
+    android:paddingBottom="15dp"
+    android:layout_marginTop="0.01dp"
+    android:filterTouchesWhenObscured="true"
+    android:orientation="vertical"
+    android:gravity="end">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="10">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nombreArticulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre: Calculadora Casio"
+            android:textSize="14dp"
+            android:textColor="#000"
+            android:contentDescription="Descripcion" />
+
+        <TextView
+            android:id="@+id/numeroArticulos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Cant. Articulos: "
+            android:textSize="14dp"
+            android:textColor="#000"
+            android:contentDescription="Descripcion" />
+
+
+
+        <TextView
+            android:id="@+id/nombreLugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Lugar de entrega:"
+            android:textSize="14dp"
+            android:textColor="#000"
+            android:contentDescription="Descripcion" />
+
+        <TextView
+            android:id="@+id/nombreDia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Dia de entrega:"
+            android:textSize="14dp"
+            android:textColor="#000"
+            android:contentDescription="Descripcion" />
+
+        <TextView
+            android:id="@+id/horaEntrega"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Hora:"
+            android:textSize="14dp"
+            android:textColor="#000"
+            android:contentDescription="Descripcion" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgArticulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/divider"/>
+</LinearLayout>
+
