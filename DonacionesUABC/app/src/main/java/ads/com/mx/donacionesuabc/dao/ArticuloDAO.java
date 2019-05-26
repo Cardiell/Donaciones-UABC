@@ -206,6 +206,11 @@ public class ArticuloDAO{
                 articulo.setIdProducto(rs.getInt("idProducto"));
                 articulo.setNombre(rs.getString("nombre"));
                 articulo.setCantidad(rs.getInt("cantidad"));
+                articulo.setImagen(rs.getBytes("imagen"));
+                articulo.setLugar(rs.getString("lugar"));
+                articulo.setDia(rs.getString("dia"));
+                articulo.setHora(rs.getString("hora"));
+
                 lista.add(articulo);
 
             }

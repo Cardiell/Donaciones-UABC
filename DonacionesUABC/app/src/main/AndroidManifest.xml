@@ -16,7 +16,7 @@
         <activity
             android:name=".activities.ReceptorActivity"
             android:label="@string/title_activity_receptor"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.VerDonacionesActivity" />
         <activity
             android:name=".activities.RegistroArticuloActivity"

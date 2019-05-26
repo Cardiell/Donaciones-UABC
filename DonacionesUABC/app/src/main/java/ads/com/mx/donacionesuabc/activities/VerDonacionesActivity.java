@@ -12,8 +12,6 @@ import ads.com.mx.donacionesuabc.ListaNombreSolicitantes;
 import ads.com.mx.donacionesuabc.R;
 import ads.com.mx.donacionesuabc.entidades.Persona;
 
-import static ads.com.mx.donacionesuabc.activities.DonadorActivity.user;
-
 public class VerDonacionesActivity extends AppCompatActivity {
 
 
@@ -25,10 +23,7 @@ public class VerDonacionesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.out.println("Inicie................"+user.getCorreo());
         setContentView(R.layout.activity_ver_donaciones);
-        System.out.println("HER: "+ Lista.persona.size());
-
         recyclerView = findViewById(R.id.rvListaSoli);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -41,7 +36,6 @@ public class VerDonacionesActivity extends AppCompatActivity {
 
 
     public void cargarLista(){
-        System.out.println("HER: "+Lista.persona.get(0).getNombre());
         lista.addPersona(null);
         for (Persona articulo : Lista.persona){
             lista.addPersona(articulo);

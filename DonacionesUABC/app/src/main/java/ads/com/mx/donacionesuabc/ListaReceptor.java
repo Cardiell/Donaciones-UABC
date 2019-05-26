@@ -31,7 +31,6 @@ public class ListaReceptor extends RecyclerView.Adapter<ListaReceptor.MyViewHold
 
     public static List<Articulo> articulos;
    private static ArrayList<Articulo> arrayList;
-    private DonacionesFragment donacion=null;
     private InicioReceptor receptor =null;
 
     public ListaReceptor(InicioReceptor u,List<Articulo> temp){
@@ -76,6 +75,7 @@ public class ListaReceptor extends RecyclerView.Adapter<ListaReceptor.MyViewHold
                     articulos.add(arti);
             }
         }
+        System.out.println("Tamano:" +articulos.size());
         notifyDataSetChanged();
     }
 

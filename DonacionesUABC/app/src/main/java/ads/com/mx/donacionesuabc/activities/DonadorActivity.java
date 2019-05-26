@@ -20,6 +20,7 @@ import ads.com.mx.donacionesuabc.dao.UsuarioDAO;
 import ads.com.mx.donacionesuabc.entidades.Persona;
 import ads.com.mx.donacionesuabc.entidades.Usuario;
 import ads.com.mx.donacionesuabc.fragments.AcercaDe;
+import ads.com.mx.donacionesuabc.fragments.CompartirFragment;
 import ads.com.mx.donacionesuabc.fragments.DonacionesFragment;
 import ads.com.mx.donacionesuabc.fragments.InicioDonador;
 import ads.com.mx.donacionesuabc.R;
@@ -112,7 +113,8 @@ public class DonadorActivity extends AppCompatActivity implements NavigationView
             startActivity(intent);
 
         } else if (id == R.id.nav_share) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                    new CompartirFragment()).commit();
         } else if (id == R.id.nav_Acercade) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     new AcercaDe()).commit();

@@ -50,7 +50,6 @@ public class InicioReceptor extends Fragment implements MenuItem.OnActionExpandL
         View v = inflater.inflate(R.layout.fragment_inicio_receptor, container, false);
 
             // Inflate the layout for this fragment
-            System.out.println("InicioRec"+ReceptorActivity.usuario.getCorreo());
             lista = new ListaReceptor(this,new ArticuloDAO().ListarArticulos(ReceptorActivity.usuario.getIdUsuario()));
             recyclerView = v.findViewById(R.id.rvLista);
             recyclerView.setHasFixedSize(true);
