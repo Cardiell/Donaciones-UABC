@@ -5,21 +5,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFF"
-    tools:context=".fragments.InicioReceptor">
+    tools:context=".fragments.InicioReceptor"
+    android:backgroundTint="#E9F0E9"
+    >
 
 
 
 
-
-
-
-    <SearchView
-        android:id="@+id/edtBusqueda"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textColor="#000"
-        android:textSize="12sp" />
 
 
     <ImageView
@@ -33,20 +25,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="60dp">
+        android:layout_marginBottom="40dp">
 
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tipo de Donacion"
-            android:textColor="#000000"
-            android:visibility="invisible"
-            android:textSize="18sp"/>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="40dp"
             android:scrollbarStyle="insideOverlay">
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,7 +39,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvLista"
                 android:layout_width="match_parent"
-                android:layout_height="460dp" />
+                android:layout_height="match_parent" />
         </LinearLayout>
         </ScrollView>
     </LinearLayout>

@@ -1,6 +1,8 @@
 package ads.com.mx.donacionesuabc.entidades;
 
-public class Persona {
+import java.io.Serializable;
+
+public class Persona implements Serializable {
     private int idPersona;
     private String nombre;
     private String apellidoP;

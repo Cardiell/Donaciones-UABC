@@ -1,6 +1,6 @@
 package ads.com.mx.donacionesuabc;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,10 +9,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
-import ads.com.mx.donacionesuabc.activities.VerDonacionesActivity;
+import ads.com.mx.donacionesuabc.activities.ReceptorActivity;
+import ads.com.mx.donacionesuabc.dao.ArticuloDAO;
 import ads.com.mx.donacionesuabc.entidades.Articulo;
 import ads.com.mx.donacionesuabc.fragments.DonacionesFragment;
 import ads.com.mx.donacionesuabc.fragments.InicioReceptor;
@@ -25,11 +29,17 @@ interface CustomItemClickListener{
 
 public class ListaReceptor extends RecyclerView.Adapter<ListaReceptor.MyViewHolder>{
 
-    private ArrayList<Articulo> articulos = new ArrayList<Articulo>();
+    public static List<Articulo> articulos;
+   private static ArrayList<Articulo> arrayList;
     private DonacionesFragment donacion=null;
     private InicioReceptor receptor =null;
 
-    public ListaReceptor(InicioReceptor u){receptor = u;}
+    public ListaReceptor(InicioReceptor u,List<Articulo> temp){
+        receptor = u;
+        this.articulos = temp;
+        this.arrayList = new ArrayList<>();
+        this.arrayList.addAll(temp);
+    }
 
     @Override
     public int getItemCount() {
@@ -55,6 +65,20 @@ public class ListaReceptor extends RecyclerView.Adapter<ListaReceptor.MyViewHold
         notifyDataSetChanged();
     }
 
+    public void filter(String text){
+        text = text.toLowerCase(Locale.getDefault());
+        articulos.clear();
+        if(text.length()==0)
+            articulos.addAll(arrayList);
+        else{
+            for(Articulo arti:arrayList){
+                if(arti.getNombre().toLowerCase(Locale.getDefault()).contains(text))
+                    articulos.add(arti);
+            }
+        }
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i){
@@ -66,10 +90,11 @@ public class ListaReceptor extends RecyclerView.Adapter<ListaReceptor.MyViewHold
             vh.btnDeseo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                        Intent intent = new Intent(receptor.getContext(), VerDonacionesActivity.class);
-                        receptor.setIndex(vh.getLayoutPosition());
-                        intent.putExtra("ART", articulos.get(vh.getLayoutPosition()));
-                        receptor.startActivityForResult(intent, 2);
+                    int color = Color.parseColor("#AE6118");
+                    vh.btnDeseo.setBackgroundColor(color);
+                    Toast.makeText(receptor.getActivity(),"Solicitud enviada :)",Toast.LENGTH_SHORT).show();
+                    new ArticuloDAO().agregarSolicitud(ReceptorActivity.usuario.getIdUsuario()); //idUsuario
+                    new ArticuloDAO().agregarDetallesDonacion(articulos.get(vh.getLayoutPosition()).getIdProducto(),new ArticuloDAO().getLastSolicitud());
 
                 }
             });

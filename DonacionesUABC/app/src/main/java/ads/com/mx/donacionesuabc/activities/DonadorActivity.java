@@ -26,9 +26,7 @@ import ads.com.mx.donacionesuabc.R;
 
 public class DonadorActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static String PREFS_KEY = "XD";
     private SharedPreferences.Editor mEditor;
-
     public static Usuario user;
 
     @Override

@@ -142,6 +142,49 @@ public class ArticuloDAO{
     }
 
 
+    public boolean agregarSolicitud(int idUsuario) {
+        Connection con = null;
+        CallableStatement cstm = null;
+        boolean resp = true;
+        try {
+            con = conexion.getConexion();
+            con.setAutoCommit(false);
+            cstm = con.prepareCall("{Call guardaSolicitud(?)}");
+            cstm.setInt(1, idUsuario);
+            resp = cstm.execute();
+            con.commit();
+        } catch (SQLException e){
+            e.printStackTrace();
+            e.getErrorCode();
+            e.getCause();
+        }finally{
+            conexion.Cerrar1(con, cstm);
+        }
+        return resp;
+    }
+
+    public boolean agregarDetallesDonacion(int idProducto,int idSolicitud) {
+        Connection con = null;
+        CallableStatement cstm = null;
+        boolean resp = true;
+        try {
+            con = conexion.getConexion();
+            con.setAutoCommit(false);
+            cstm = con.prepareCall("{Call guardaDetallesDonacion(?,?)}");
+            cstm.setInt(1, idProducto);
+            cstm.setInt(2, idSolicitud);
+            resp = cstm.execute();
+            con.commit();
+        } catch (SQLException e){
+            e.printStackTrace();
+            e.getErrorCode();
+            e.getCause();
+        }finally{
+            conexion.Cerrar1(con, cstm);
+        }
+        return resp;
+    }
+
 
     public List<Articulo> listarxUsuario(int idUsuario){
         Connection con = null;
@@ -175,15 +218,110 @@ public class ArticuloDAO{
         return(lista);
     }
 
-    public List<Articulo> ListarArticulos() {
+    public List<Articulo> listarxNombre(String nombre){
+        Connection con = null;
+        ResultSet rs = null;
+        CallableStatement cstm = null;
+        List<Articulo> lista = null;
+
+
+        String query = "exec ListarArticulosxNombre "+nombre;
+        System.out.println("Query: "+query);
+        try{
+            lista = new ArrayList<>();
+            con = conexion.getConexion();
+            cstm = con.prepareCall(query);
+            rs = cstm.executeQuery();
+            Articulo art = null;
+            while(rs.next()){
+
+                art = new Articulo();
+                art.setIdProducto(rs.getInt("idProducto"));
+                art.setIdUsuario(rs.getInt("idUsuario"));
+                art.setNombre(rs.getString("nombre"));
+                art.setCantidad(rs.getInt("cantidad"));
+                art.setImagen(rs.getBytes("imagen"));
+                art.setFacultad(rs.getString("facultad"));
+                art.setDia(rs.getString("dia"));
+                art.setHora(rs.getString("hora"));
+                art.setLugar(rs.getString("lugar"));
+                art.setDescripcion(rs.getString("descripcion"));
+                lista.add(art);
+
+            }
+        }catch(Exception e) {
+            System.err.println("Tenemos una excepcion: "+e.getMessage());
+
+        }finally {
+            conexion.Cerrar2(cstm,rs); //Cerrar conexion
+        }
+        return(lista);
+    }
+
+    public List<Articulo> dameSolicitudes(int idProducto){
+        Connection con = null;
+        ResultSet rs = null;
+        CallableStatement cstm = null;
+        List<Articulo> lista = null;
+
+
+        String query = "exec nombresSolicitantes "+idProducto;
+        try{
+            lista = new ArrayList<>();
+            con = conexion.getConexion();
+            cstm = con.prepareCall(query);
+            rs = cstm.executeQuery();
+            Articulo articulo = null;
+            while(rs.next()){
+
+                articulo = new Articulo();
+                articulo.setIdProducto(rs.getInt("idProducto"));
+                articulo.setNombre(rs.getString("nombre"));
+                articulo.setCantidad(rs.getInt("cantidad"));
+                lista.add(articulo);
+
+            }
+        }catch(Exception e) {
+            System.err.println("Tenemos una excepcion: "+e.getMessage());
+
+        }finally {
+            conexion.Cerrar2(cstm,rs); //Cerrar conexion
+        }
+        return(lista);
+    }
+
+    public int getLastSolicitud(){
+        Connection con = null;
+        ResultSet rs = null;
+        CallableStatement cstm = null;
+        String query = "exec listarSolicitud ";
+        int cnt=0;
+        try{
+            con = conexion.getConexion();
+            cstm = con.prepareCall(query);
+            rs = cstm.executeQuery();
+            while(rs.next()){
+               cnt++;
+            }
+        }catch(Exception e) {
+            System.err.println("Tenemos una excepcion: "+e.getMessage());
+        }finally {
+            conexion.Cerrar2(cstm,rs); //Cerrar conexion
+        }
+        return(cnt);
+    }
+
+    public List<Articulo> ListarArticulos(int idUsuario) {
         Connection con = null;
         CallableStatement cstm = null;
         ResultSet rs = null;
+        String query ="exec ListarArticulos "+idUsuario;
+        System.out.println("Query: "+query);
         List<Articulo> lista = null;
         try {
             lista = new ArrayList<>();
             con = conexion.getConexion();
-            cstm = con.prepareCall("{Call ListarArticulos}");
+            cstm = con.prepareCall(query);
             rs = cstm.executeQuery();
             Articulo art = null;
             while (rs.next()) {
@@ -193,7 +331,6 @@ public class ArticuloDAO{
                 art.setNombre(rs.getString("nombre"));
                 art.setCantidad(rs.getInt("cantidad"));
                 art.setImagen(rs.getBytes("imagen"));
-                art.setSolicitud(rs.getInt("idSolicitud"));
                 art.setFacultad(rs.getString("facultad"));
                 art.setDia(rs.getString("dia"));
                 art.setHora(rs.getString("hora"));

@@ -4,25 +4,29 @@ package ads.com.mx.donacionesuabc;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import ads.com.mx.donacionesuabc.activities.VerDonacionesActivity;
+import ads.com.mx.donacionesuabc.dao.UsuarioDAO;
 import ads.com.mx.donacionesuabc.entidades.Articulo;
+import ads.com.mx.donacionesuabc.entidades.Persona;
 import ads.com.mx.donacionesuabc.fragments.DonacionesFragment;
-import ads.com.mx.donacionesuabc.fragments.InicioReceptor;
-
 
 
 public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
     int cont=0;
     private ArrayList<Articulo> articulos = new ArrayList<Articulo>();
     private DonacionesFragment donacion=null;
+    public static ArrayList<Persona> persona;
+    private ArrayList<ArrayList<Persona>> temp =new ArrayList<>();
     CustomItemClickListener listener;
 
     public Lista(DonacionesFragment u){
@@ -69,11 +73,15 @@ public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
         vh.btnCantidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(donacion.getContext(), VerDonacionesActivity.class);
-                    donacion.setIndex(vh.getLayoutPosition());
-                    intent.putExtra("ART", articulos.get(vh.getLayoutPosition()));
-                    donacion.startActivityForResult(intent, 2);
+                    if (!(temp.get(vh.getLayoutPosition() - 1).isEmpty())) {
+                        Intent intent = new Intent(donacion.getActivity(), VerDonacionesActivity.class);
+                        persona = temp.get(vh.getLayoutPosition()-1);
+                        donacion.startActivity(intent);
+                    } else {
+                        Toast.makeText(donacion.getContext(), "No hay solicitudes por el momento...", Toast.LENGTH_SHORT).show();
+                }
             }
+
         });
     }
 
@@ -83,12 +91,13 @@ public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(MyViewHolder viewHolder, int i){
-        System.out.println("cont: "+cont);
         if(cont!=0) {
             viewHolder.txtNombreArt.setText(articulos.get(i).getNombre());
-            viewHolder.btnCantidad.setText(String.valueOf(articulos.get(i).getCantidad()));
-        }
-        cont++;
+            temp.add(new UsuarioDAO().dameSolicitudes(articulos.get(i).getIdProducto()));
+            System.out.println("Imprimiendo "+temp.size());
+            viewHolder.btnCantidad.setText(String.valueOf(temp.get(i-1).size()));
+        }else
+            cont++;
 
 
     }

@@ -5,7 +5,10 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import ads.com.mx.donacionesuabc.entidades.Persona;
 import ads.com.mx.donacionesuabc.entidades.Usuario;
 
 
@@ -72,6 +75,39 @@ public class UsuarioDAO {
             conexion.Cerrar1(con, cstm);
         }
         return resp;
+    }
+
+    public ArrayList<Persona> dameSolicitudes(int idProducto){
+        Connection con = null;
+        ResultSet rs = null;
+        CallableStatement cstm = null;
+        ArrayList<Persona> lista = null;
+
+
+        String query = "exec nombresSolicitantes "+idProducto;
+        try{
+            lista = new ArrayList<>();
+            con = conexion.getConexion();
+            cstm = con.prepareCall(query);
+            rs = cstm.executeQuery();
+            Persona persona = null;
+            while(rs.next()){
+
+                persona = new Persona();
+                persona.setNombre(rs.getString("nombre"));
+                persona.setApellidoP(rs.getString("apellidoP"));
+                persona.setApellidoM(rs.getString("apellidoM"));
+                persona.setIdPersona(rs.getInt("idPersona"));
+                lista.add(persona);
+
+            }
+        }catch(Exception e) {
+            System.err.println("Tenemos una excepcion: "+e.getMessage());
+
+        }finally {
+            conexion.Cerrar2(cstm,rs); //Cerrar conexion
+        }
+        return(lista);
     }
 
     public boolean UpdateUsuario(Usuario user) {

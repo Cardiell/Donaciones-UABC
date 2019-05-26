@@ -3,25 +3,33 @@ package ads.com.mx.donacionesuabc.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import java.util.List;
 
 import ads.com.mx.donacionesuabc.R;
 import ads.com.mx.donacionesuabc.ListaReceptor;
+import ads.com.mx.donacionesuabc.activities.ReceptorActivity;
 import ads.com.mx.donacionesuabc.dao.ArticuloDAO;
 import ads.com.mx.donacionesuabc.entidades.Articulo;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class InicioReceptor extends Fragment {
+public class InicioReceptor extends Fragment implements MenuItem.OnActionExpandListener {
 
     private int index;
     private ListaReceptor lista;
@@ -42,22 +50,16 @@ public class InicioReceptor extends Fragment {
         View v = inflater.inflate(R.layout.fragment_inicio_receptor, container, false);
 
             // Inflate the layout for this fragment
-            lista = new ListaReceptor(this);
+            System.out.println("InicioRec"+ReceptorActivity.usuario.getCorreo());
+            lista = new ListaReceptor(this,new ArticuloDAO().ListarArticulos(ReceptorActivity.usuario.getIdUsuario()));
             recyclerView = v.findViewById(R.id.rvLista);
             recyclerView.setHasFixedSize(true);
             layoutManager = new LinearLayoutManager(getActivity());
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setAdapter(lista);
-            cargarLista();
+            setHasOptionsMenu(true);
             return v;
         }
-
-    public void cargarLista(){
-        List<Articulo> arti =new ArticuloDAO().ListarArticulos();
-        for (Articulo articulo : arti){
-            lista.addProducto(articulo);
-        }
-    }
 
 
 
@@ -69,6 +71,39 @@ public class InicioReceptor extends Fragment {
         this.index = i;
     }
 
+    @Override
+    public boolean onMenuItemActionExpand(MenuItem item) {
+        return false;
+    }
+
+    @Override
+    public boolean onMenuItemActionCollapse(MenuItem item) {
+        return false;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+       final MenuItem searchItem = menu.findItem(R.id.buscarArticulo);
+       final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+       searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+           @Override
+           public boolean onQueryTextSubmit(String s) {
+               return false;
+           }
+
+           @Override
+           public boolean onQueryTextChange(String s) {
+                if(TextUtils.isEmpty(s))
+                    lista.filter("");
+                else
+                    lista.filter(s);
+
+               return true;
+           }
+       });
+       super.onCreateOptionsMenu(menu,inflater);
+    }
 }
 
 

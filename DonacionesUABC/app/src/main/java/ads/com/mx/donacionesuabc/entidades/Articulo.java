@@ -9,12 +9,20 @@ public class Articulo implements Serializable {
     private String nombre;
     private int cantidad;
     private byte[] imagen;
-    private int solicitud;
     private String facultad;
     private String dia;
     private String hora;
     private String lugar;
     private String descripcion;
+    private int solicitudes;
+
+    public int getSolicitudes() {
+        return solicitudes;
+    }
+
+    public void setSolicitudes(int solicitudes) {
+        this.solicitudes = solicitudes;
+    }
 
     public Articulo(){}
 
@@ -63,14 +71,6 @@ public class Articulo implements Serializable {
 
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
-    }
-
-    public int getSolicitud() {
-        return solicitud;
-    }
-
-    public void setSolicitud(int solicitud) {
-        this.solicitud = solicitud;
     }
 
     public int getIdProducto() {

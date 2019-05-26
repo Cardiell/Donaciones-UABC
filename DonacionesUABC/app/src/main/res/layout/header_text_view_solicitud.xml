@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:paddingTop="0.01dp"
+    android:filterTouchesWhenObscured="true"
+    android:gravity="end"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <LinearLayout
+        android:background="@drawable/image_border"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:backgroundTint="#A8AAA8"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="#000"
+            android:text="Nombre"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            tools:ignore="RtlHardcoded" />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/image_border"
+        android:layout_weight="1"
+        android:backgroundTint="#00ffffff"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000"
+            android:textSize="21dp"
+            android:contentDescription="Descripcion" />
+
+
+    </LinearLayout>
+</LinearLayout>
+
