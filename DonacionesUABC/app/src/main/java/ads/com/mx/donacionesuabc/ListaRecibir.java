@@ -87,7 +87,6 @@ public class ListaRecibir extends RecyclerView.Adapter<ListaRecibir.MyViewHolder
                 @Override
                 public void onClick(View v) {
                         Intent intent = new Intent(donacion.getActivity(), RecibosActivity.class);
-                    //    persona = temp.get(vh.getLayoutPosition()-1);
                         donacion.startActivity(intent);
                     }
             });
