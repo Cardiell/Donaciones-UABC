@@ -125,7 +125,7 @@ public class ListaNombreSolicitantes extends RecyclerView.Adapter<ListaNombreSol
                     @Override
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
                         String mensaje = "Se envio la solicitud a \n\t\t"+persona.get(vh.getLayoutPosition()).getNombre();
-                        new ArticuloDAO().updateDetallesDonacion(IDARTICULO,DonadorActivity.user.getIdPersona(),true);
+                        new ArticuloDAO().updateDetallesDonacion(IDARTICULO,persona.get(vh.getLayoutPosition()).getIdPersona(),true);
                         //alert_msg(donacion,"DonApps",mensaje,vh);
                         Toast.makeText(donacion,mensaje, Toast.LENGTH_SHORT).show();
                     }

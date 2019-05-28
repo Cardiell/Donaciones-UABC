@@ -30,8 +30,8 @@ public class ListaRecibir extends RecyclerView.Adapter<ListaRecibir.MyViewHolder
     public ListaRecibir(RecibirFragment u , List<Articulo> lista) {
         this.donacion = u;
         this.articulos = lista;
-        this.arrayList = new ArrayList<>();
-        this.arrayList.addAll(lista);
+        arrayList = new ArrayList<>();
+        arrayList.addAll(lista);
     }
 
     public ListaRecibir(RecibirFragment u){

@@ -21,10 +21,10 @@ public class InicioDonador extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_inicio_donador, container, false);
-        ImageButton btnRopa = (ImageButton) v.findViewById(R.id.btnRopa);
-        ImageButton btnUtiles = (ImageButton) v.findViewById(R.id.btnUtiles);
-        ImageButton btnElectronica = (ImageButton) v.findViewById(R.id.btnElectronica);
-        ImageButton btnOtros = (ImageButton) v.findViewById(R.id.btnOtros);
+        ImageButton btnRopa = v.findViewById(R.id.btnRopa);
+        ImageButton btnUtiles = v.findViewById(R.id.btnUtiles);
+        ImageButton btnElectronica = v.findViewById(R.id.btnElectronica);
+        ImageButton btnOtros = v.findViewById(R.id.btnOtros);
 
         btnRopa.setOnClickListener(this);
         btnUtiles.setOnClickListener(this);

@@ -32,12 +32,12 @@ public class RegistroExternoActivity extends AppCompatActivity {
     }
 
     private void initComponent(){
-        txtNombre = (EditText)findViewById(R.id.txtNombre);
-        txtApellidos = (EditText)findViewById(R.id.txtApellidos);
-        txtCorreo = (EditText)findViewById(R.id.txtCorreo);
-        txtPassword = (EditText)findViewById(R.id.txtPass1);
-        txtPasswordConfirma = (EditText)findViewById(R.id.txtPass2);
-        txtTelefono = (EditText)findViewById(R.id.txtTelefono);
+        txtNombre = findViewById(R.id.txtNombre);
+        txtApellidos = findViewById(R.id.txtApellidos);
+        txtCorreo = findViewById(R.id.txtCorreo);
+        txtPassword = findViewById(R.id.txtPass1);
+        txtPasswordConfirma = findViewById(R.id.txtPass2);
+        txtTelefono = findViewById(R.id.txtTelefono);
 
 
     }
@@ -55,7 +55,7 @@ public class RegistroExternoActivity extends AppCompatActivity {
             if (toStringTxt(txtPasswordConfirma).equals(toStringTxt(txtPassword))) {
                 //filtrar apellidos.....
                 apellidoP = toStringTxt(txtApellidos).substring(0,toStringTxt(txtApellidos).indexOf(espacio));
-                apellidoM = toStringTxt(txtApellidos).substring(toStringTxt(txtApellidos).indexOf(espacio)+1,toStringTxt(txtApellidos).length());
+                apellidoM = toStringTxt(txtApellidos).substring(toStringTxt(txtApellidos).indexOf(espacio)+1);
                 Persona persona = new Persona(toStringTxt(txtNombre), apellidoP,apellidoM, toStringTxt(txtTelefono));
                 new PersonaDao().agregarPersona(persona);
                 Persona temp = new PersonaDao().endPersona();

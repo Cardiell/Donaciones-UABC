@@ -29,8 +29,8 @@ public class ListaCompartir extends RecyclerView.Adapter<ListaCompartir.MyViewHo
     public ListaCompartir(CompartirFragment u , List<Articulo> lista) {
         this.compartir = u;
         this.articulos = lista;
-        this.arrayList = new ArrayList<>();
-        this.arrayList.addAll(lista);
+        arrayList = new ArrayList<>();
+        arrayList.addAll(lista);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class ListaCompartir extends RecyclerView.Adapter<ListaCompartir.MyViewHo
     @Override
     public void onBindViewHolder(MyViewHolder viewHolder, int i){
         viewHolder.nombreArticulo.setText("Nombre: "+articulos.get(i).getNombre());
-        viewHolder.numeroArticulos.setText("Cant. No: "+String.valueOf(articulos.get(i).getCantidad()));
+        viewHolder.numeroArticulos.setText("Cant. No: "+ articulos.get(i).getCantidad());
         viewHolder.nombreLugar.setText("Lugar de entrega: "+articulos.get(i).getLugar());
         viewHolder.nombreDia.setText("Dia de entrega: "+articulos.get(i).getDia());
         viewHolder.horaArticulo.setText("Hora de entrega: "+articulos.get(i).getHora());

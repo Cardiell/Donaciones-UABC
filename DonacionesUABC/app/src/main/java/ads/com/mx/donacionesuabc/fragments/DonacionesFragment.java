@@ -53,7 +53,6 @@ public class DonacionesFragment extends Fragment {
 
     public void cargarLista(){
         List<Articulo> arti =new ArticuloDAO().listarxUsuario(DonadorActivity.user.getIdUsuario());
-        lista.addProducto(new Articulo());
         for (Articulo articulo : arti){
             lista.addProducto(articulo);
         }

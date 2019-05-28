@@ -4,13 +4,14 @@ package ads.com.mx.donacionesuabc;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,6 @@ import ads.com.mx.donacionesuabc.fragments.DonacionesFragment;
 
 
 public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
-    int cont=0;
     public static int IDARTICULO;
     private ArrayList<Articulo> articulos = new ArrayList<Articulo>();
     private DonacionesFragment donacion=null;
@@ -39,22 +39,9 @@ public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
         return articulos.size();
     }
 
-    public Articulo getArticulo(int i){
-        return articulos.get(i);
-    }
 
     public void addProducto(Articulo articulo){
         articulos.add(articulo);
-        notifyDataSetChanged();
-    }
-
-    public void removeProducto(int index){
-        articulos.remove(index);
-        notifyDataSetChanged();
-    }
-
-    public void modify(int index, Articulo articulo){
-        articulos.set(index, articulo);
         notifyDataSetChanged();
     }
 
@@ -63,20 +50,15 @@ public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i){
         View itemView;
         final MyViewHolder vh;
-    if(cont==0) {
-        itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_text_view, viewGroup, false);
-        vh = new MyViewHolder(itemView);
-    }
-    else {
         itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.my_text_view, viewGroup, false);
 
         vh = new MyViewHolder(itemView);
         vh.btnCantidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if (!(temp.get(vh.getLayoutPosition() - 1).isEmpty())) {
+                    if (!(temp.get(vh.getLayoutPosition()).isEmpty())) {
                         Intent intent = new Intent(donacion.getActivity(), VerDonacionesActivity.class);
-                        persona = temp.get(vh.getLayoutPosition()-1);
+                        persona = temp.get(vh.getLayoutPosition());
                         IDARTICULO = articulos.get(vh.getLayoutPosition()).getIdProducto();
                         donacion.startActivity(intent);
                     } else {
@@ -85,7 +67,6 @@ public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
             }
 
         });
-    }
 
         return vh;
     }
@@ -93,24 +74,18 @@ public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(MyViewHolder viewHolder, int i){
-        if(cont!=0) {
             viewHolder.txtNombreArt.setText(articulos.get(i).getNombre());
             temp.add(new UsuarioDAO().dameSolicitudes(articulos.get(i).getIdProducto()));
-            System.out.println("Imprimiendo "+temp.size());
-            viewHolder.btnCantidad.setText(String.valueOf(temp.get(i-1).size()));
-        }else
-            cont++;
-
+            viewHolder.btnCantidad.setText(String.valueOf(temp.get(i).size()));
 
     }
-    // Return the size of your dataset (invoked by the layout manager)
 
     class MyViewHolder extends RecyclerView.ViewHolder{
         TextView txtNombreArt;
         Button btnCantidad;
         public MyViewHolder(final View itemView){
             super(itemView);
-            txtNombreArt = itemView.findViewById(R.id.txtNombreArt);
+            txtNombreArt = itemView.findViewById(R.id.txtNom);
             btnCantidad = itemView.findViewById(R.id.btnCantidad);
         }
     }

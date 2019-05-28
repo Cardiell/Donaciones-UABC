@@ -49,8 +49,6 @@ public class ReceptorActivity extends AppCompatActivity implements NavigationVie
             usuario= (Usuario) savedInstanceState.getSerializable("user");
         }
 
-        guardarValor("correo",usuario.getCorreo());
-        guardarValor("pass",usuario.getPassword());
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -61,7 +59,7 @@ public class ReceptorActivity extends AppCompatActivity implements NavigationVie
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView)findViewById(R.id.nav_viewer);
+        NavigationView navigationView = findViewById(R.id.nav_viewer);
         navigationView.setNavigationItemSelectedListener(this);
 
         txtCorreo = navigationView.getHeaderView(0).findViewById(R.id.menuCorreo);
@@ -139,7 +137,6 @@ public class ReceptorActivity extends AppCompatActivity implements NavigationVie
             getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
                     new AyudaReceptorFragment()).commit();
         } else if (id == R.id.nav_close) {
-            guardarValor("correo","...");
             Intent intent = new Intent(ReceptorActivity.this,LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
             startActivity(intent);
@@ -149,13 +146,6 @@ public class ReceptorActivity extends AppCompatActivity implements NavigationVie
         DrawerLayout drawer = findViewById(R.id.drawer_layouter);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    private void guardarValor(String key, String value){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(key, value);
-        editor.commit();
     }
 
     private TextView txtNombre;

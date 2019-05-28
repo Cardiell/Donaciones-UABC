@@ -24,7 +24,7 @@ import ads.com.mx.donacionesuabc.fragments.InicioReceptor;
 
 
 interface CustomItemClickListener{
-    public void onItemClick(View v, int position);
+    void onItemClick(View v, int position);
 }
 
 public class ListaReceptor extends RecyclerView.Adapter<ListaReceptor.MyViewHolder>{
@@ -35,9 +35,9 @@ public class ListaReceptor extends RecyclerView.Adapter<ListaReceptor.MyViewHold
 
     public ListaReceptor(InicioReceptor u,List<Articulo> temp){
         receptor = u;
-        this.articulos = temp;
-        this.arrayList = new ArrayList<>();
-        this.arrayList.addAll(temp);
+        articulos = temp;
+        arrayList = new ArrayList<>();
+        arrayList.addAll(temp);
     }
 
     @Override
@@ -108,7 +108,7 @@ public class ListaReceptor extends RecyclerView.Adapter<ListaReceptor.MyViewHold
     public void onBindViewHolder(MyViewHolder viewHolder, int i){
             viewHolder.nombreArticulo.setText(articulos.get(i).getNombre());
             viewHolder.nombreFacultad.setText("Facultad: "+articulos.get(i).getFacultad());
-            viewHolder.numeroArticulos.setText("Articulos No: "+String.valueOf(articulos.get(i).getCantidad()));
+            viewHolder.numeroArticulos.setText("Articulos No: "+ articulos.get(i).getCantidad());
             viewHolder.nombreLugar.setText("Lugar: "+articulos.get(i).getLugar());
             viewHolder.nombreDia.setText("Dia: "+articulos.get(i).getDia());
             viewHolder.nombreDescripcion.setText("Descripcion: "+articulos.get(i).getDescripcion());

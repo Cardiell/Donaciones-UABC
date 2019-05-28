@@ -53,13 +53,13 @@ public class RegistroArticuloActivity extends AppCompatActivity {
     }
 
     private void initComponents(){
-        spnFacultad = (Spinner)findViewById(R.id.facultad);
-        spnDia= (Spinner)findViewById(R.id.dia);
-        spnHora= (Spinner)findViewById(R.id.hora);
-        spnLugar= (Spinner)findViewById(R.id.lugar);
-        txtNombre = (EditText)findViewById(R.id.edtNombre);
-        edtDescripcion = (EditText)findViewById(R.id.txtDescripcion);
-        imgCamara = (ImageView)findViewById(R.id.imageCamara);
+        spnFacultad = findViewById(R.id.facultad);
+        spnDia= findViewById(R.id.dia);
+        spnHora= findViewById(R.id.hora);
+        spnLugar= findViewById(R.id.lugar);
+        txtNombre = findViewById(R.id.edtNombre);
+        edtDescripcion = findViewById(R.id.txtDescripcion);
+        imgCamara = findViewById(R.id.imageCamara);
         np = findViewById(R.id.cantidad);
         np.setMinValue(1);
         np.setMaxValue(20);
@@ -131,7 +131,7 @@ public class RegistroArticuloActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode ==COD_PHOTO && resultCode == RESULT_OK){
 
-            Bitmap bitmap = (Bitmap)data.getParcelableExtra("data");
+            Bitmap bitmap = data.getParcelableExtra("data");
             //Bitmap bit = BitmapFactory.decodeResource(getResources(),"data");
             Bitmap scaled = Bitmap.createScaledBitmap(bitmap,250,300,true);
             imgCamara.setImageBitmap(scaled);

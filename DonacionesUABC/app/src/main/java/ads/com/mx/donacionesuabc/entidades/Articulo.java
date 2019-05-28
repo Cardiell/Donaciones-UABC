@@ -16,6 +16,15 @@ public class Articulo implements Serializable {
     private String descripcion;
     private int solicitudes;
 
+    public int getIdUsuario2() {
+        return idUsuario2;
+    }
+
+    public void setIdUsuario2(int idUsuario2) {
+        this.idUsuario2 = idUsuario2;
+    }
+
+    private int idUsuario2;
     public boolean isAceptar() {
         return aceptar;
     }

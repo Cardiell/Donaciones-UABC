@@ -28,36 +28,14 @@ public class LoginActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         new CamaraPermisos().solicitarPermisos(this);
-        Usuario user = new UsuarioDAO().consultaUsuario(leerValor("correo"),leerValor("pass"));
-        if(user== null){
-            setContentView(R.layout.activity_login);
-            getSupportActionBar().hide();
-            initComponents();
-        }else {
-            if(user.isRol()) {
-                Intent intent = new Intent(this, DonadorActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
-                intent.putExtra("user", user);
-                startActivity(intent);
-                finish();
-            }else{
-                Intent intent = new Intent(this, ReceptorActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // <- Aquí :)
-                intent.putExtra("user", user);
-                startActivity(intent);
-                finish();
-            }
-        }
-    }
-
-    private String leerValor(String keyPref){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        return sharedPreferences.getString(keyPref, "temp") ;
+        setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
+        initComponents();
     }
 
     private void initComponents(){
-        txtPass = (EditText)findViewById(R.id.txtPass);
-        txtUser = (EditText)findViewById(R.id.txtUser);
+        txtPass = findViewById(R.id.txtPass);
+        txtUser = findViewById(R.id.txtUser);
     }
 
     public void onClickAcercaDe(View view) {

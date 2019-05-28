@@ -22,99 +22,6 @@ public class ArticuloDAO{
     Conexion conexion = new Conexion();
     public ArticuloDAO(){}
 
-    public Articulo consultaCodigo(String id){
-        Connection con = null;
-        ResultSet rs = null;
-        CallableStatement cstm = null;
-        Articulo articulo = null;
-        String query = "exec consultaCodigo '"+id+"'";
-
-        try{
-            con = conexion.getConexion();
-            cstm = con.prepareCall(query);
-            rs = cstm.executeQuery();
-            if(rs.next()){
-                articulo = new Articulo();
-                articulo.setIdProducto(rs.getInt("idProducto"));
-                articulo.setNombre(rs.getString("nombre"));
-                articulo.setCantidad(rs.getInt("existencia"));
-            }
-        }catch(Exception e) {
-            System.err.println("Tenemos una excepcion: "+e.getMessage());
-        }finally {
-            conexion.Cerrar2(cstm,rs); //Cerrar conexion
-        }
-        return(articulo);
-    }
-
-    public ArrayList consultaNombre2(String nombre){
-        Connection con = null;
-        ResultSet rs = null;
-        CallableStatement cstm = null;
-        Articulo articulo = null;
-        ArrayList<String> lista=new ArrayList();
-
-        String query = "exec busquedaProducto '"+nombre+"'";
-        System.out.println("consultaNombre2: "+ query);
-
-        try{
-            con = conexion.getConexion();
-            cstm = con.prepareCall(query);
-            rs = cstm.executeQuery();
-            if(rs.next()){
-                do {
-                    articulo = new Articulo();
-                    articulo.setIdProducto(rs.getInt("idProducto"));
-                    articulo.setNombre(rs.getString("nombre"));
-                    articulo.setCantidad(rs.getInt("cantidad"));
-                    lista.add(rs.getString("idProducto")+" "+rs.getString("nombre"));
-                } while(rs.next());
-
-            }
-        }catch(Exception e) {
-            System.err.println("Tenemos una excepcion: "+e.getMessage());
-
-        }finally {
-            conexion.Cerrar2(cstm,rs); //Cerrar conexion
-        }
-        System.out.println(lista);
-        return(lista);
-    }
-
-
-
-
-
-    public Articulo consultaNombre(String nombre){
-        Connection con = null;
-        ResultSet rs = null;
-        CallableStatement cstm = null;
-        Articulo articulo = null;
-
-        String query = "exec consultaNombre '"+nombre+"'";
-        System.out.println("consultaNombre: "+ query);
-
-        try{
-            con = conexion.getConexion();
-            cstm = con.prepareCall(query);
-            rs = cstm.executeQuery();
-            if(rs.next()){
-
-                articulo = new Articulo();
-                articulo.setIdProducto(rs.getInt("idProducto"));
-                articulo.setNombre(rs.getString("nombre"));
-                articulo.setCantidad(rs.getInt("cantidad"));
-
-
-            }
-        }catch(Exception e) {
-            System.err.println("Tenemos una excepcion: "+e.getMessage());
-
-        }finally {
-            conexion.Cerrar2(cstm,rs); //Cerrar conexion
-        }
-        return(articulo);
-    }
 
     public boolean AgregarArticulo(Articulo art) {
         Connection con = null;
@@ -276,6 +183,7 @@ public class ArticuloDAO{
                 articulo.setIdProducto(rs.getInt("idProducto"));
                 articulo.setSolicitudes(rs.getInt("idSolicitud"));
                 articulo.setAceptar(rs.getBoolean("aceptar"));
+                articulo.setIdUsuario2(rs.getInt("idUsuario"));
 
                 lista.add(articulo);
 
@@ -288,35 +196,32 @@ public class ArticuloDAO{
         }
         return(lista);
     }
-    public List<Articulo> listarxNombre(String nombre){
+
+
+    public List<Articulo> listarDetalleDonacionxId(int idProducto){
         Connection con = null;
         ResultSet rs = null;
         CallableStatement cstm = null;
         List<Articulo> lista = null;
 
 
-        String query = "exec ListarArticulosxNombre "+nombre;
-        System.out.println("ListarxNombre: "+ query);
+        String query = "exec listarDetallesDonacionxId "+idProducto;
+        System.out.println("ListaDetalleDonacion: "+ query);
         try{
             lista = new ArrayList<>();
             con = conexion.getConexion();
             cstm = con.prepareCall(query);
             rs = cstm.executeQuery();
-            Articulo art = null;
+            Articulo articulo = null;
             while(rs.next()){
 
-                art = new Articulo();
-                art.setIdProducto(rs.getInt("idProducto"));
-                art.setIdUsuario(rs.getInt("idUsuario"));
-                art.setNombre(rs.getString("nombre"));
-                art.setCantidad(rs.getInt("cantidad"));
-                art.setImagen(rs.getBytes("imagen"));
-                art.setFacultad(rs.getString("facultad"));
-                art.setDia(rs.getString("dia"));
-                art.setHora(rs.getString("hora"));
-                art.setLugar(rs.getString("lugar"));
-                art.setDescripcion(rs.getString("descripcion"));
-                lista.add(art);
+                articulo = new Articulo();
+                articulo.setIdProducto(rs.getInt("idProducto"));
+                articulo.setSolicitudes(rs.getInt("idSolicitud"));
+                articulo.setAceptar(rs.getBoolean("aceptar"));
+                articulo.setIdUsuario2(rs.getInt("idUsuario"));
+
+                lista.add(articulo);
 
             }
         }catch(Exception e) {
@@ -327,10 +232,6 @@ public class ArticuloDAO{
         }
         return(lista);
     }
-
-
-
-
 
 
     public Articulo listarArticuloxId(int idArticulo){
