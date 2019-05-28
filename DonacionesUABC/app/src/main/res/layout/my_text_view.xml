@@ -47,7 +47,6 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:background="@drawable/image_border"
-            android:text="1000"
             android:contentDescription="Descripcion" />
 
 

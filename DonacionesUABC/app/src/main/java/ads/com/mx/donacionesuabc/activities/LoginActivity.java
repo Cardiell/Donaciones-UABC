@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import ads.com.mx.donacionesuabc.CamaraPermisos;
 import ads.com.mx.donacionesuabc.R;
 import ads.com.mx.donacionesuabc.dao.UsuarioDAO;
 import ads.com.mx.donacionesuabc.entidades.Usuario;
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
+        new CamaraPermisos().solicitarPermisos(this);
         Usuario user = new UsuarioDAO().consultaUsuario(leerValor("correo"),leerValor("pass"));
         if(user== null){
             setContentView(R.layout.activity_login);

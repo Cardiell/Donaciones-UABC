@@ -23,6 +23,7 @@ import ads.com.mx.donacionesuabc.fragments.DonacionesFragment;
 
 public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
     int cont=0;
+    public static int IDARTICULO;
     private ArrayList<Articulo> articulos = new ArrayList<Articulo>();
     private DonacionesFragment donacion=null;
     public static ArrayList<Persona> persona;
@@ -76,6 +77,7 @@ public class Lista extends RecyclerView.Adapter<Lista.MyViewHolder>{
                     if (!(temp.get(vh.getLayoutPosition() - 1).isEmpty())) {
                         Intent intent = new Intent(donacion.getActivity(), VerDonacionesActivity.class);
                         persona = temp.get(vh.getLayoutPosition()-1);
+                        IDARTICULO = articulos.get(vh.getLayoutPosition()).getIdProducto();
                         donacion.startActivity(intent);
                     } else {
                         Toast.makeText(donacion.getContext(), "No hay solicitudes por el momento...", Toast.LENGTH_SHORT).show();

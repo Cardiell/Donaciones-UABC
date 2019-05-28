@@ -9,13 +9,13 @@
     android:filterTouchesWhenObscured="true"
     android:gravity="end"
     android:orientation="horizontal"
-    android:weightSum="5">
+    android:weightSum="1">
 
     <LinearLayout
         android:background="@drawable/image_border"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="4"
+        android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
@@ -37,23 +37,16 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="#FAED02"
-        android:orientation="vertical">
-    <RadioGroup
-        android:id="@+id/btnGroup"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
-        <RadioButton
-            android:id="@+id/btnSolicitud"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#FAED02"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCantidad"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:contentDescription="Descripcion" />
-    </RadioGroup>
 
 
     </LinearLayout>

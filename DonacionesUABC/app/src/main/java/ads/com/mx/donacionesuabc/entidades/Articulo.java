@@ -16,6 +16,16 @@ public class Articulo implements Serializable {
     private String descripcion;
     private int solicitudes;
 
+    public boolean isAceptar() {
+        return aceptar;
+    }
+
+    public void setAceptar(boolean aceptar) {
+        this.aceptar = aceptar;
+    }
+
+    private boolean aceptar;
+
     public int getSolicitudes() {
         return solicitudes;
     }

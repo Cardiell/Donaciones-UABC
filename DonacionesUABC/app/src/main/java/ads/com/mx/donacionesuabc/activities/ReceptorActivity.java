@@ -24,6 +24,7 @@ import ads.com.mx.donacionesuabc.entidades.Usuario;
 import ads.com.mx.donacionesuabc.fragments.AcercaDe;
 import ads.com.mx.donacionesuabc.fragments.AyudaReceptorFragment;
 import ads.com.mx.donacionesuabc.fragments.InicioReceptor;
+import ads.com.mx.donacionesuabc.fragments.RecibirFragment;
 
 public class ReceptorActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -118,7 +119,8 @@ public class ReceptorActivity extends AppCompatActivity implements NavigationVie
                     new InicioReceptor()).commit();
 
         } else if (id == R.id.nav_donaciones) {
-
+            getSupportFragmentManager().beginTransaction().replace(R.id.container_fragment,
+                    new RecibirFragment()).commit();
 
         } else if (id == R.id.nav_change) {
 

@@ -24,6 +24,9 @@ public class VerDonacionesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_donaciones);
+        Bundle datos = this.getIntent().getExtras();
+
+
         recyclerView = findViewById(R.id.rvListaSoli);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
