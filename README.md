@@ -1,16 +1,18 @@
-# Donaciones UABC
+# "Donaciones UABC"
 
 This program was designed for the Systems Analysis and Design class, it is based on helping students through the support of solidarity people to improve their academic performance, through donations of materials they need throughout the year (course of their career).
 
 
-## Login
+## Login Screen
+
 <p align="center">
   <img width="300" height="500" src="https://i.imgur.com/oU93yYi.jpg">
 </p>
 The system has the access option for all UABC internal staff (teachers, students, etc.) using the email and password, and a registry for people outside the institution.
 
 A league is also incorporated to obtain more information about the donation program.
-## Home Donador
+
+## Main screen of the role of the donor
 
 <p align="center">
   <img width="300" height="500" src="https://i.imgur.com/jeI66aJ.jpg">
@@ -23,7 +25,8 @@ Once entered as a Donor mode, the following screen will be selected in which we 
 - Electronics
 - Others (test tube, lab coats, Foceps.etc).
 
-## Add item to cart
+## My donations screen
+
 <p align="center">
   <img width="300" height="500" src="https://i.imgur.com/nbLXRR8.jpg">
     <img width="300" height="500" src="https://i.imgur.com/FY5JFWR.jpg">
@@ -31,13 +34,15 @@ Once entered as a Donor mode, the following screen will be selected in which we 
 In the following image we can present the option "Mis donaciones", in which people who loaded an item to donate, will be able to observe the state in which their article is located, as well as who requested such an article
 
 
-## Share items
+## Screen for sharing donated items
+
 <p align="center">
   <img width="300" height="500" src="https://i.imgur.com/nPNRTYu.jpg">
 </p>
 
 This screen shows the donations that the donor user has along with a “Compartir” button which will publish in the user profile the donations with which he currently has.
-## Home receptor
+
+## Main screen of the receiving role
 <p align="center">
   <img width="300" height="500" src="https://i.imgur.com/Sq5JXcU.jpg">
     <img width="300" height="500" src="https://i.imgur.com/XV9hnzu.jpg">
@@ -47,7 +52,7 @@ You will have another button called "Desire" when you select send a notification
 
 We have an option for recipients to see who has already approved their "Wishes" and thus be able to go for your article
 
-## Pay item 
+## Screen to publish article
 
 <p align="center">
   <img width="300" height="500" src="https://i.imgur.com/AX4hx2r.jpg">
